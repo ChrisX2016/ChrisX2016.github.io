@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="reading notes,NLP," />
 
 
 
@@ -84,15 +84,19 @@
 
 
 
-<meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MUUUUUJ">
-<meta property="og:url" content="http://yoursite.com/archives/2016/06/index.html">
+<meta name="description" content="一篇关于搭建基于NLP的课程分类与推荐系统">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NLP-based Course Clustering and Recommendation">
+<meta property="og:url" content="http://yoursite.com/2016/07/04/NLP-based-Course-Clustering-and-Recommendation/index.html">
 <meta property="og:site_name" content="MUUUUUJ">
-<meta property="og:description">
+<meta property="og:description" content="一篇关于搭建基于NLP的课程分类与推荐系统">
+<meta property="og:image" content="http://yoursite.com/\images\NLP_recommendation-1.png">
+<meta property="og:image" content="http://yoursite.com/\images\NLP_recommendation-2.png">
+<meta property="og:updated_time" content="2016-07-04T09:21:46.163Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MUUUUUJ">
-<meta name="twitter:description">
+<meta name="twitter:title" content="NLP-based Course Clustering and Recommendation">
+<meta name="twitter:description" content="一篇关于搭建基于NLP的课程分类与推荐系统">
+<meta name="twitter:image" content="http://yoursite.com/\images\NLP_recommendation-1.png">
 
 
 
@@ -113,9 +117,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2016/06/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/07/04/NLP-based-Course-Clustering-and-Recommendation/"/>
 
-  <title> Archive | MUUUUUJ </title>
+  <title> NLP-based Course Clustering and Recommendation | MUUUUUJ </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -136,7 +140,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-right  page-archive  ">
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -224,66 +228,154 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      Um..! 5 posts in total. Keep on posting.
-    </span>
-
+  <div id="posts" class="posts-expand">
     
 
-      
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                NLP-based Course Clustering and Recommendation
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-07-04T12:59:02+08:00" content="2016-07-04">
+              2016-07-04
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/machine-learning/" itemprop="url" rel="index">
+                    <span itemprop="name">machine learning</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/04/NLP-based-Course-Clustering-and-Recommendation/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/04/NLP-based-Course-Clustering-and-Recommendation/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
       
       
 
       
+        <h2 id="数据收集"><a href="#数据收集" class="headerlink" title="数据收集"></a>数据收集</h2><p>收集 UC Berkeley 7004 个课程的信息，每个如 table 1 所示，课程必须包含 department, department code, course number, title, description 才被收录。<br><img src="\images\NLP_recommendation-1.png" alt="NLP_recommendation-1"></p>
+<h2 id="数据预处理"><a href="#数据预处理" class="headerlink" title="数据预处理"></a>数据预处理</h2><p>使用 NLTK 中的 morphy() function 进行词形还原，也可以使用 porter stemmer 算法，但是会去掉多余的 feature. Table 2 为预处理之后的文档<br><img src="\images\NLP_recommendation-2.png" alt="NLP_recommendation-2"></p>
+<h2 id="Features-and-Models"><a href="#Features-and-Models" class="headerlink" title="Features and Models"></a>Features and Models</h2><p>使用 tf-idf 算法，计算关键词的 score ，标题也进行计算，这里 score 越高关联度越大。<br>之后进行向量化，取每篇篇文章中 score 最高的前 n 个关键词，假设共有 N 个关键词 ,$[e_{1},e_{2},\ldots,e_{n}]$,对于一篇文章中的第 n 个关键词$e_{n}=1$否则$e_{n}=0$，将每篇文章向量化。<br>最后使用 K-means 选取初值，EM algorithm 获得最终分类。<br>检索，同样将检索的内容向量化，使用 cosine similiarity , 找出cosine similiarity 最小的。</p>
+<h2 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h2><blockquote>
+<p>Suzuki, Kentaro, and Hyunwoo Park. “NLP-based Course Clustering and Recommendation.” (2009).<br>TF-IDF:<a href="http://www.ruanyifeng.com/blog/2013/03/tf-idf.html" target="_blank" rel="external"> http://www.ruanyifeng.com/blog/2013/03/tf-idf.html</a><br>改进TF-IDF权重公式:<a href="http://www.52nlp.cn/forgetnlp4" target="_blank" rel="external"> http://www.52nlp.cn/forgetnlp4</a></p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2016">2016</h2>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/reading-notes/" rel="tag">#reading notes</a>
+          
+            <a href="/tags/NLP/" rel="tag">#NLP</a>
+          
         </div>
       
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/04/DS-for-Business-Chapter-3/" rel="next" title="Data Science for Business Chapter 3 阅读笔记">
+                <i class="fa fa-chevron-left"></i> Data Science for Business Chapter 3 阅读笔记
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
 
       
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/06/27/keras-quick-start/" itemprop="url">
-              
-                <span itemprop="name">keras quick start</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-06-27T14:30:29+08:00"
-              content="2016-06-27" >
-          06-27
-        </time>
-      </div>
-
-    </header>
+      
+    </footer>
   </article>
 
 
 
-    
-
-  </section>
-
-  
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -291,6 +383,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -310,8 +413,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/touxiang.jpg"
@@ -361,6 +473,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据收集"><span class="nav-number">1.</span> <span class="nav-text">数据收集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据预处理"><span class="nav-number">2.</span> <span class="nav-text">数据预处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Features-and-Models"><span class="nav-number">3.</span> <span class="nav-text">Features and Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference"><span class="nav-number">4.</span> <span class="nav-text">reference</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -457,11 +580,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
 
 
   
@@ -479,9 +600,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'muuuuuj';
-      var disqus_identifier = 'archives/2016/06/index.html';
-      var disqus_title = "";
-      var disqus_url = '';
+      var disqus_identifier = '2016/07/04/NLP-based-Course-Clustering-and-Recommendation/';
+      var disqus_title = "NLP-based Course Clustering and Recommendation";
+      var disqus_url = 'http://yoursite.com/2016/07/04/NLP-based-Course-Clustering-and-Recommendation/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
@@ -492,6 +613,8 @@
       }
 
       run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
       
     </script>
   
