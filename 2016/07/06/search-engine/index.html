@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="reading notes,Data Science for Business," />
+  <meta name="keywords" content="learning notes,search engine," />
 
 
 
@@ -84,18 +84,21 @@
 
 
 
-<meta name="description" content="Introduction to Predictive Modeling-From Correlation to Supervised Segmentation">
+<meta name="description" content="关于搜索引擎的工作原理">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Data Science for Business Chapter 3 阅读笔记">
-<meta property="og:url" content="http://yoursite.com/2016/07/04/DS-for-Business-Chapter-3/index.html">
+<meta property="og:title" content="Search engine working principle">
+<meta property="og:url" content="http://yoursite.com/2016/07/06/search-engine/index.html">
 <meta property="og:site_name" content="MUUUUUJ">
-<meta property="og:description" content="Introduction to Predictive Modeling-From Correlation to Supervised Segmentation">
-<meta property="og:image" content="http://yoursite.com/\images\DS_for_B_3-1.png">
-<meta property="og:updated_time" content="2016-07-04T03:33:04.664Z">
+<meta property="og:description" content="关于搜索引擎的工作原理">
+<meta property="og:image" content="http://yoursite.com/\images\search engine 1.png">
+<meta property="og:image" content="http://yoursite.com/\images\search engine 2.png">
+<meta property="og:image" content="http://yoursite.com/\images\search engine 3.png">
+<meta property="og:image" content="http://yoursite.com/\images\search engine 4.png">
+<meta property="og:updated_time" content="2016-07-10T12:02:01.954Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Data Science for Business Chapter 3 阅读笔记">
-<meta name="twitter:description" content="Introduction to Predictive Modeling-From Correlation to Supervised Segmentation">
-<meta name="twitter:image" content="http://yoursite.com/\images\DS_for_B_3-1.png">
+<meta name="twitter:title" content="Search engine working principle">
+<meta name="twitter:description" content="关于搜索引擎的工作原理">
+<meta name="twitter:image" content="http://yoursite.com/\images\search engine 1.png">
 
 
 
@@ -116,9 +119,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/07/04/DS-for-Business-Chapter-3/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/07/06/search-engine/"/>
 
-  <title> Data Science for Business Chapter 3 阅读笔记 | MUUUUUJ </title>
+  <title> Search engine working principle | MUUUUUJ </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -248,7 +251,7 @@
             
             
               
-                Data Science for Business Chapter 3 阅读笔记
+                Search engine working principle
               
             
           </h1>
@@ -260,8 +263,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-07-04T09:00:39+08:00" content="2016-07-04">
-              2016-07-04
+            <time itemprop="dateCreated" datetime="2016-07-06T10:05:44+08:00" content="2016-07-06">
+              2016-07-06
             </time>
           </span>
 
@@ -274,8 +277,8 @@
               <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Data-Science/" itemprop="url" rel="index">
-                    <span itemprop="name">Data Science</span>
+                  <a href="/categories/search-engine/" itemprop="url" rel="index">
+                    <span itemprop="name">search engine</span>
                   </a>
                 </span>
 
@@ -290,8 +293,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/07/04/DS-for-Business-Chapter-3/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/04/DS-for-Business-Chapter-3/" itemprop="commentsCount"></span>
+                <a href="/2016/07/06/search-engine/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/06/search-engine/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -314,10 +317,61 @@
       
 
       
-        <h1 id="Data-Science-for-Business-Chapter-2-reading-notes"><a href="#Data-Science-for-Business-Chapter-2-reading-notes" class="headerlink" title="Data Science for Business Chapter 2 reading notes"></a>Data Science for Business Chapter 2 reading notes</h1><p><strong>Fundamental concepts:</strong> Identifying informative attributes; Segmenting data by progressive attribute selection.<br><strong>Exemplary techniques:</strong> Finding correlations; Attribute/variable selection; Tree induction.<br>主要讲 predictive modeling.</p>
-<h2 id="Models-Induction-and-Prediction"><a href="#Models-Induction-and-Prediction" class="headerlink" title="Models, Induction, and Prediction"></a>Models, Induction, and Prediction</h2><p><img src="\images\DS_for_B_3-1.png" alt="DS_for_B_3-1"><br>supervised 一个例子，给定 balance, age, employed, 预测 write-off.<br>此处有关于 supervised variable 的定义. attributes variable, target variable. 可从 figure 3-1 理解。</p>
-<h2 id="Supervised-Segmentation"><a href="#Supervised-Segmentation" class="headerlink" title="Supervised Segmentation"></a>Supervised Segmentation</h2><p>一些重复的概念，粗看。</p>
-<h2 id="Selecting-Informative-Attributes"><a href="#Selecting-Informative-Attributes" class="headerlink" title="Selecting Informative Attributes"></a>Selecting Informative Attributes</h2>
+        <p>搜索引擎的工作原理</p>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>搜索引擎大致分为4个基础部分：</p>
+<ol>
+<li>蜘蛛爬虫系统</li>
+<li>数据分析系统</li>
+<li>索引系统</li>
+<li>查询系统</li>
+</ol>
+<h1 id="蜘蛛爬虫系统"><a href="#蜘蛛爬虫系统" class="headerlink" title="蜘蛛爬虫系统"></a>蜘蛛爬虫系统</h1><p>发现一个连接 $\rightarrow$下载该网页$\rightarrow$加入临时库$\rightarrow$提取网页中连接$\rightarrow$再下载网页$\rightarrow$循环</p>
+<h2 id="蜘蛛爬虫抓取网页策略1：深度优先"><a href="#蜘蛛爬虫抓取网页策略1：深度优先" class="headerlink" title="蜘蛛爬虫抓取网页策略1：深度优先"></a>蜘蛛爬虫抓取网页策略1：深度优先</h2><p>蜘蛛到达一个页面后，发现一个锚文本链接，就是爬进去另个一页面，然后又在另一个页面发现另一个锚文本链接，接着往里面爬，直到最后爬完这个网站。</p>
+<h2 id="蜘蛛爬虫抓取网页策略2：广度优先"><a href="#蜘蛛爬虫抓取网页策略2：广度优先" class="headerlink" title="蜘蛛爬虫抓取网页策略2：广度优先"></a>蜘蛛爬虫抓取网页策略2：广度优先</h2><p>蜘蛛到达一个页面后，发现锚文本不是直接进去，而是把整个页面所有都爬行完毕，再一起进入所有锚文本的另一个页面，直到整个网站爬行完毕。</p>
+<h2 id="蜘蛛爬虫抓取网页策略3：权重优先"><a href="#蜘蛛爬虫抓取网页策略3：权重优先" class="headerlink" title="蜘蛛爬虫抓取网页策略3：权重优先"></a>蜘蛛爬虫抓取网页策略3：权重优先</h2><p>结合深度优先与广度优先，参照链接的权重，如果这条权重较高，采用深度优先，如果权重较低，采用广度优先。</p>
+<h3 id="权重判别方式"><a href="#权重判别方式" class="headerlink" title="权重判别方式"></a>权重判别方式</h3><ol>
+<li>层次的多与少</li>
+<li>该链接的外链多少与质量</li>
+</ol>
+<h2 id="蜘蛛爬虫抓取网页策略4：重访抓取"><a href="#蜘蛛爬虫抓取网页策略4：重访抓取" class="headerlink" title="蜘蛛爬虫抓取网页策略4：重访抓取"></a>蜘蛛爬虫抓取网页策略4：重访抓取</h2><p>用于网页更新后重新抓取，分为两种</p>
+<ol>
+<li>全部重复：指定间隔时间，全部重新访问抓取一次</li>
+<li>单个重复：对于更新频率较快的网页，指定较短间隔时间重新访问抓取</li>
+</ol>
+<h1 id="数据分析系统"><a href="#数据分析系统" class="headerlink" title="数据分析系统"></a>数据分析系统</h1><p>对爬虫抓取的网页进行分析，分为：</p>
+<ol>
+<li>页面结构化：删除HTML代码，提取内容</li>
+<li>消噪：保留网页主题内容，删除无用内容如版权</li>
+<li>查重：</li>
+<li>分词：将内容分为N个词语，排列，存入索引库</li>
+<li>链接分析：查询内链、外链、权重</li>
+</ol>
+<h1 id="索引系统"><a href="#索引系统" class="headerlink" title="索引系统"></a>索引系统</h1><p>索引系统中的索引包含3个概念：命中（Hit）、正排索引（Forward Index）和倒排索引（Inverted Index）。</p>
+<h2 id="命中"><a href="#命中" class="headerlink" title="命中"></a>命中</h2><p>名字表示索引词在文章中的位置（position）和字体等信息。</p>
+<h2 id="正排索引"><a href="#正排索引" class="headerlink" title="正排索引"></a>正排索引</h2><p>是创建倒排索引的基础,包括4个字段： LocalID(Lid), WordID, NHits, HitList. 存放方式如下图所示，其中null结束符。<br><img src="\images\search engine 1.png" alt="search engine 1"></p>
+<p>##倒排索引<br>按关键词创建的索引称为”倒排索引”。这里关键词成为“索引词”。并不是所有关键词会创建索引。分为两部分</p>
+<ol>
+<li>词典(lexicon),由不同索引词(index term)组成的索引表。如下图左所示</li>
+<li>记录列表(posting list),又每个索引词出现过的文档集合和命中位置等信息组成，如下图右所示。<br><img src="\images\search engine 2.png" alt="search engine 2"></li>
+</ol>
+<h2 id="正排表与倒排表合并"><a href="#正排表与倒排表合并" class="headerlink" title="正排表与倒排表合并"></a>正排表与倒排表合并</h2><p><img src="\images\search engine 3.png" alt="search engine 3"></p>
+<h1 id="查询系统"><a href="#查询系统" class="headerlink" title="查询系统"></a>查询系统</h1><p>查询词：用户提交给查询系统的关键词<br>检索词：查询词分词后，提交给检索代理</p>
+<h2 id="检索模型"><a href="#检索模型" class="headerlink" title="检索模型"></a>检索模型</h2><ol>
+<li>布尔模型</li>
+<li>向量空间模型</li>
+</ol>
+<p>主要用到的算法为：余弦相似度(Cosine similarity)和 TF-IDF (term frequency–inverse document frequency)<br>检索过程如下：<br><img src="\images\search engine 4.png" alt="search engine 4"><br>其中求交过程可用最佳归并树算法或其他归并算法<br>堆排序采用HEAPSORT算法</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>未涉及自动摘要，生成搜索结果页，根据搜索日志推测用户意图。<br>一些附加功能</p>
+<ul>
+<li>推测用户查询意图，包括查询纠错、查询推荐及相关搜索。</li>
+<li>某领域内细分，垂直搜索及分类搜索</li>
+<li>查询结果优化，相似结果聚类、垃圾网页及病毒网页甄别</li>
+<li>个性化服务，保存用户的个性化信息并给出可指定的服务，列如可定制搜索服务</li>
+</ul>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><blockquote>
+<p>潘雪峰. 走进搜索引擎[M]. 电子工业出版社, 2011.</p>
+</blockquote>
+
       
     </div>
 
@@ -338,9 +392,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/reading-notes/" rel="tag">#reading notes</a>
+            <a href="/tags/learning-notes/" rel="tag">#learning notes</a>
           
-            <a href="/tags/Data-Science-for-Business/" rel="tag">#Data Science for Business</a>
+            <a href="/tags/search-engine/" rel="tag">#search engine</a>
           
         </div>
       
@@ -349,17 +403,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/03/DS-for-Business-Chapter-2/" rel="next" title="Data Science for Business Chapter 2 阅读笔记">
-                <i class="fa fa-chevron-left"></i> Data Science for Business Chapter 2 阅读笔记
+              <a href="/2016/07/05/SQL-my-problem/" rel="next" title="SQL学习过程中的一些问题">
+                <i class="fa fa-chevron-left"></i> SQL学习过程中的一些问题
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/07/04/NLP-based-Course-Clustering-and-Recommendation/" rel="prev" title="NLP-based Course Clustering and Recommendation">
-                NLP-based Course Clustering and Recommendation <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -480,7 +530,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Science-for-Business-Chapter-2-reading-notes"><span class="nav-number">1.</span> <span class="nav-text">Data Science for Business Chapter 2 reading notes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Models-Induction-and-Prediction"><span class="nav-number">1.1.</span> <span class="nav-text">Models, Induction, and Prediction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Supervised-Segmentation"><span class="nav-number">1.2.</span> <span class="nav-text">Supervised Segmentation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Selecting-Informative-Attributes"><span class="nav-number">1.3.</span> <span class="nav-text">Selecting Informative Attributes</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#蜘蛛爬虫系统"><span class="nav-number">2.</span> <span class="nav-text">蜘蛛爬虫系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#蜘蛛爬虫抓取网页策略1：深度优先"><span class="nav-number">2.1.</span> <span class="nav-text">蜘蛛爬虫抓取网页策略1：深度优先</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#蜘蛛爬虫抓取网页策略2：广度优先"><span class="nav-number">2.2.</span> <span class="nav-text">蜘蛛爬虫抓取网页策略2：广度优先</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#蜘蛛爬虫抓取网页策略3：权重优先"><span class="nav-number">2.3.</span> <span class="nav-text">蜘蛛爬虫抓取网页策略3：权重优先</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#权重判别方式"><span class="nav-number">2.3.1.</span> <span class="nav-text">权重判别方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#蜘蛛爬虫抓取网页策略4：重访抓取"><span class="nav-number">2.4.</span> <span class="nav-text">蜘蛛爬虫抓取网页策略4：重访抓取</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据分析系统"><span class="nav-number">3.</span> <span class="nav-text">数据分析系统</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#索引系统"><span class="nav-number">4.</span> <span class="nav-text">索引系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#命中"><span class="nav-number">4.1.</span> <span class="nav-text">命中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正排索引"><span class="nav-number">4.2.</span> <span class="nav-text">正排索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正排表与倒排表合并"><span class="nav-number">4.3.</span> <span class="nav-text">正排表与倒排表合并</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查询系统"><span class="nav-number">5.</span> <span class="nav-text">查询系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#检索模型"><span class="nav-number">5.1.</span> <span class="nav-text">检索模型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">7.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
           </div>
         </section>
@@ -600,9 +650,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'muuuuuj';
-      var disqus_identifier = '2016/07/04/DS-for-Business-Chapter-3/';
-      var disqus_title = "Data Science for Business Chapter 3 阅读笔记";
-      var disqus_url = 'http://yoursite.com/2016/07/04/DS-for-Business-Chapter-3/';
+      var disqus_identifier = '2016/07/06/search-engine/';
+      var disqus_title = "Search engine working principle";
+      var disqus_url = 'http://yoursite.com/2016/07/06/search-engine/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');

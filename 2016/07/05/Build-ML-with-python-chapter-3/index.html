@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="machine learning,reading notes,python,Build Machine Learning Systems with Python," />
 
 
 
@@ -84,15 +84,16 @@
 
 
 
-<meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MUUUUUJ">
-<meta property="og:url" content="http://yoursite.com/tags/keras/index.html">
+<meta name="description" content="Clustering – Finding Related Posts">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Build Machine Learning Systems with Python chapter 3 reading notes">
+<meta property="og:url" content="http://yoursite.com/2016/07/05/Build-ML-with-python-chapter-3/index.html">
 <meta property="og:site_name" content="MUUUUUJ">
-<meta property="og:description">
+<meta property="og:description" content="Clustering – Finding Related Posts">
+<meta property="og:updated_time" content="2016-07-05T09:28:47.968Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MUUUUUJ">
-<meta name="twitter:description">
+<meta name="twitter:title" content="Build Machine Learning Systems with Python chapter 3 reading notes">
+<meta name="twitter:description" content="Clustering – Finding Related Posts">
 
 
 
@@ -113,9 +114,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/keras/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/07/05/Build-ML-with-python-chapter-3/"/>
 
-  <title> Tag: keras | MUUUUUJ </title>
+  <title> Build Machine Learning Systems with Python chapter 3 reading notes | MUUUUUJ </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -136,7 +137,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-right  ">
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -224,46 +225,165 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        keras
-        <small>Tag</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Build Machine Learning Systems with Python chapter 3 reading notes
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-07-05T10:13:24+08:00" content="2016-07-05">
+              2016-07-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/python-machine-learning/" itemprop="url" rel="index">
+                    <span itemprop="name">python machine learning</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/05/Build-ML-with-python-chapter-3/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/05/Build-ML-with-python-chapter-3/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <p>Clustering – Finding Related Posts</p>
+<h2 id="主流程"><a href="#主流程" class="headerlink" title="主流程"></a>主流程</h2><ol>
+<li>Extract the salient features from each post and store it as a vector per post.</li>
+<li>Compute clustering on the vectors.</li>
+<li>Determine the cluster for the post in question.</li>
+<li>From this cluster, fetch a handful of posts that are different from the post in<br>question. This will increase diversity.</li>
+</ol>
+<h2 id="预处理"><a href="#预处理" class="headerlink" title="预处理"></a>预处理</h2><h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><p>The naive approach would be to take the post, calculate its similarity to all other<br>posts, and display the top N most similar posts as links on the page. This will quickly become very costly. </p>
+<p> Levenshtein distance (edit distance)</p>
 
-      <h1 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2016/06/27/keras-quick-start/" itemprop="url">
-              
-                <span itemprop="name">keras quick start</span>
-              
-            </a>
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-06-27T14:30:29+08:00"
-              content="2016-06-27" >
-          06-27
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/machine-learning/" rel="tag">#machine learning</a>
+          
+            <a href="/tags/reading-notes/" rel="tag">#reading notes</a>
+          
+            <a href="/tags/python/" rel="tag">#python</a>
+          
+            <a href="/tags/Build-Machine-Learning-Systems-with-Python/" rel="tag">#Build Machine Learning Systems with Python</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/04/NLP-based-Course-Clustering-and-Recommendation/" rel="next" title="NLP-based Course Clustering and Recommendation">
+                <i class="fa fa-chevron-left"></i> NLP-based Course Clustering and Recommendation
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/05/SQL-my-problem/" rel="prev" title="SQL学习过程中的一些问题">
+                SQL学习过程中的一些问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -271,6 +391,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -290,8 +421,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/touxiang.jpg"
@@ -341,6 +481,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#主流程"><span class="nav-number">1.</span> <span class="nav-text">主流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#预处理"><span class="nav-number">2.</span> <span class="nav-text">预处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#code"><span class="nav-number">3.</span> <span class="nav-text">code</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -437,6 +588,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
@@ -453,9 +608,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'muuuuuj';
-      var disqus_identifier = 'tags/keras/index.html';
-      var disqus_title = "";
-      var disqus_url = '';
+      var disqus_identifier = '2016/07/05/Build-ML-with-python-chapter-3/';
+      var disqus_title = "Build Machine Learning Systems with Python chapter 3 reading notes";
+      var disqus_url = 'http://yoursite.com/2016/07/05/Build-ML-with-python-chapter-3/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
@@ -466,6 +621,8 @@
       }
 
       run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
       
     </script>
   

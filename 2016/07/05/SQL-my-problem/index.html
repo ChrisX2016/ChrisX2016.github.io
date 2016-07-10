@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="reading notes,Data Science for Business," />
+  <meta name="keywords" content="learning notes,SQL," />
 
 
 
@@ -84,18 +84,16 @@
 
 
 
-<meta name="description" content="Introduction to Predictive Modeling-From Correlation to Supervised Segmentation">
+<meta name="description" content="www.w3schools.com/sql/ 学习第一遍后的一些问题">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Data Science for Business Chapter 3 阅读笔记">
-<meta property="og:url" content="http://yoursite.com/2016/07/04/DS-for-Business-Chapter-3/index.html">
+<meta property="og:title" content="SQL学习过程中的一些问题">
+<meta property="og:url" content="http://yoursite.com/2016/07/05/SQL-my-problem/index.html">
 <meta property="og:site_name" content="MUUUUUJ">
-<meta property="og:description" content="Introduction to Predictive Modeling-From Correlation to Supervised Segmentation">
-<meta property="og:image" content="http://yoursite.com/\images\DS_for_B_3-1.png">
-<meta property="og:updated_time" content="2016-07-04T03:33:04.664Z">
+<meta property="og:description" content="www.w3schools.com/sql/ 学习第一遍后的一些问题">
+<meta property="og:updated_time" content="2016-07-06T02:19:37.378Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Data Science for Business Chapter 3 阅读笔记">
-<meta name="twitter:description" content="Introduction to Predictive Modeling-From Correlation to Supervised Segmentation">
-<meta name="twitter:image" content="http://yoursite.com/\images\DS_for_B_3-1.png">
+<meta name="twitter:title" content="SQL学习过程中的一些问题">
+<meta name="twitter:description" content="www.w3schools.com/sql/ 学习第一遍后的一些问题">
 
 
 
@@ -116,9 +114,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/07/04/DS-for-Business-Chapter-3/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/07/05/SQL-my-problem/"/>
 
-  <title> Data Science for Business Chapter 3 阅读笔记 | MUUUUUJ </title>
+  <title> SQL学习过程中的一些问题 | MUUUUUJ </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -248,7 +246,7 @@
             
             
               
-                Data Science for Business Chapter 3 阅读笔记
+                SQL学习过程中的一些问题
               
             
           </h1>
@@ -260,8 +258,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-07-04T09:00:39+08:00" content="2016-07-04">
-              2016-07-04
+            <time itemprop="dateCreated" datetime="2016-07-05T10:13:48+08:00" content="2016-07-05">
+              2016-07-05
             </time>
           </span>
 
@@ -274,8 +272,8 @@
               <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Data-Science/" itemprop="url" rel="index">
-                    <span itemprop="name">Data Science</span>
+                  <a href="/categories/SQL/" itemprop="url" rel="index">
+                    <span itemprop="name">SQL</span>
                   </a>
                 </span>
 
@@ -290,8 +288,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/07/04/DS-for-Business-Chapter-3/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/04/DS-for-Business-Chapter-3/" itemprop="commentsCount"></span>
+                <a href="/2016/07/05/SQL-my-problem/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/05/SQL-my-problem/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -314,10 +312,19 @@
       
 
       
-        <h1 id="Data-Science-for-Business-Chapter-2-reading-notes"><a href="#Data-Science-for-Business-Chapter-2-reading-notes" class="headerlink" title="Data Science for Business Chapter 2 reading notes"></a>Data Science for Business Chapter 2 reading notes</h1><p><strong>Fundamental concepts:</strong> Identifying informative attributes; Segmenting data by progressive attribute selection.<br><strong>Exemplary techniques:</strong> Finding correlations; Attribute/variable selection; Tree induction.<br>主要讲 predictive modeling.</p>
-<h2 id="Models-Induction-and-Prediction"><a href="#Models-Induction-and-Prediction" class="headerlink" title="Models, Induction, and Prediction"></a>Models, Induction, and Prediction</h2><p><img src="\images\DS_for_B_3-1.png" alt="DS_for_B_3-1"><br>supervised 一个例子，给定 balance, age, employed, 预测 write-off.<br>此处有关于 supervised variable 的定义. attributes variable, target variable. 可从 figure 3-1 理解。</p>
-<h2 id="Supervised-Segmentation"><a href="#Supervised-Segmentation" class="headerlink" title="Supervised Segmentation"></a>Supervised Segmentation</h2><p>一些重复的概念，粗看。</p>
-<h2 id="Selecting-Informative-Attributes"><a href="#Selecting-Informative-Attributes" class="headerlink" title="Selecting Informative Attributes"></a>Selecting Informative Attributes</h2>
+        <p><strong>1. 通配符 (wildcard) 当想使用<code>[charlist]</code> 以两个字母开头怎么办，如以AA和BB开头的。</strong><br>直接用<code>select * from 表 where 字段 like &#39;AA%&#39; or 字段 like &#39;BB%&#39;</code></p>
+<p><strong>2. 同样能选取 table 中的两列<code>in</code> 和 <code>or</code> 之间有什么区别。</strong><br>两者效果完全一样！<br>当<code>IN</code> 后不是子查询而是固定常量值列表时，它最后都会被解释成和<code>OR</code>一模一样的条件，这有两层意思：<br>一、当IN(条件列表) 中的条件列表是少量值时，它会解释成<code>OR</code>连接，即最后编译成和<code>OR</code>连接一模一样的语句；<br>二、当IN(条件列表) 中的条件列表很长时，或者你使用<code>OR</code>方法来连接条件并且连接数量很多时，则它们最后的解释效果也是一样的，即都是把条件列表创建为一个哈希表，然后和被查询的表中的行进行对比。<br><strong>3.<code>left join</code>和<code>right join</code> 多个表怎么办</strong></p>
+<p><strong>4. 每个表都应该有一个primary key，并且每个表只能有一个primary key,为什么还能用 <code>CONSTRAINT pk_PersonID PRIMARY KEY (Id_P,LastName)</code> 去defining a PRIMARY KEY constraint on multiple columns.</strong><br>突然发现这个问题好蠢。。。</p>
+<p><strong>5. 同样是删除数据 <code>delete</code> 和 <code>drop</code> 之间有什么区别。</strong></p>
+<ul>
+<li><code>drop</code>和<code>delete</code>只是删除表的数据(定义),<code>drop</code>语句将删除表的结构、被依赖的约束(constrain)、触发器 (trigger)、索引(index);依赖于该表的存储过程/函数将保留,但是变为invalid状态。</li>
+<li><code>delete</code>语句是DML语言,这个操作会放在rollback segement中,事物提交后才生效;如果有相应的触发器(trigger),执行的时候将被触发。<code>truncate</code>、<code>drop</code>是DDL语言,操作后即 生效,原数据不会放到rollback中,不能回滚,操作不会触发trigger。</li>
+<li><code>delete</code>语句不影响表所占用的extent、高水线(high watermark)保持原位置不动。<code>drop</code>语句将表所占用的空间全部释放。<code>truncate</code>语句缺省情况下将空间释放到minextents的 extent,除非使用reuse storage。<code>truncate</code>会将高水线复位(回到最初)。</li>
+<li>效率方面:<code>drop</code> &gt;<code>truncate</code> &gt; <code>delete</code>5.安全性:小心使用<code>drop</code>与<code>truncate</code>,尤其是在 没有备份的时候,想删除部分数据可使用<code>delete</code>需要带上where子句,回滚段要足够大,想删除表可以用<code>drop</code>,想保留表只是想删除表的所有数据、 如果跟事物无关可以使用<code>truncate</code>,如果和事物有关、又或者想触发 trigger,还是用<code>delete</code>,如果是整理表内部的碎片，可以用<code>truncate</code>跟上reuse stroage，再重新导入、插入数据。</li>
+<li><code>delete</code>是DML语句,不会自动提交。<code>drop</code>/<code>truncate</code>都是DDL语句,执行后会自动提交。 <code>drop</code>一般用于删除整体性数据 如表，模式，索引，视图，完整性限制等delete用于删除局部性数据 如表中的某一元组<code>DROP</code>把表结构都删了<code>DELETE</code>只是把数据清掉 当你不再需要该表时， 用 <code>drop</code>;当你仍要保留该表，但要删除所有记录时， 用 <code>truncate</code>;当你要删除部分记录时（always with a WHERE clause), 用 <code>delete</code>.</li>
+</ul>
+<p><strong>6. 字长为2，<code>mid()</code>取超过范围会怎么样。</strong><br>超出的地方为空</p>
+
       
     </div>
 
@@ -338,9 +345,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/reading-notes/" rel="tag">#reading notes</a>
+            <a href="/tags/learning-notes/" rel="tag">#learning notes</a>
           
-            <a href="/tags/Data-Science-for-Business/" rel="tag">#Data Science for Business</a>
+            <a href="/tags/SQL/" rel="tag">#SQL</a>
           
         </div>
       
@@ -349,16 +356,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/03/DS-for-Business-Chapter-2/" rel="next" title="Data Science for Business Chapter 2 阅读笔记">
-                <i class="fa fa-chevron-left"></i> Data Science for Business Chapter 2 阅读笔记
+              <a href="/2016/07/05/Build-ML-with-python-chapter-3/" rel="next" title="Build Machine Learning Systems with Python chapter 3 reading notes">
+                <i class="fa fa-chevron-left"></i> Build Machine Learning Systems with Python chapter 3 reading notes
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/07/04/NLP-based-Course-Clustering-and-Recommendation/" rel="prev" title="NLP-based Course Clustering and Recommendation">
-                NLP-based Course Clustering and Recommendation <i class="fa fa-chevron-right"></i>
+              <a href="/2016/07/06/search-engine/" rel="prev" title="Search engine working principle">
+                Search engine working principle <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -480,7 +487,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Science-for-Business-Chapter-2-reading-notes"><span class="nav-number">1.</span> <span class="nav-text">Data Science for Business Chapter 2 reading notes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Models-Induction-and-Prediction"><span class="nav-number">1.1.</span> <span class="nav-text">Models, Induction, and Prediction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Supervised-Segmentation"><span class="nav-number">1.2.</span> <span class="nav-text">Supervised Segmentation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Selecting-Informative-Attributes"><span class="nav-number">1.3.</span> <span class="nav-text">Selecting Informative Attributes</span></a></li></ol></li></ol></div>
+              <p class="post-toc-empty">This post does not have a Table of Contents</p>
             
           </div>
         </section>
@@ -600,9 +607,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'muuuuuj';
-      var disqus_identifier = '2016/07/04/DS-for-Business-Chapter-3/';
-      var disqus_title = "Data Science for Business Chapter 3 阅读笔记";
-      var disqus_url = 'http://yoursite.com/2016/07/04/DS-for-Business-Chapter-3/';
+      var disqus_identifier = '2016/07/05/SQL-my-problem/';
+      var disqus_title = "SQL学习过程中的一些问题";
+      var disqus_url = 'http://yoursite.com/2016/07/05/SQL-my-problem/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');

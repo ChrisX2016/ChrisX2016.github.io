@@ -84,18 +84,18 @@
 
 
 
-<meta name="description" content="一篇关于搭建基于NLP的课程分类与推荐系统">
+<meta name="description" content="搭建基于NLP的课程分类与推荐系统">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NLP-based Course Clustering and Recommendation">
 <meta property="og:url" content="http://yoursite.com/2016/07/04/NLP-based-Course-Clustering-and-Recommendation/index.html">
 <meta property="og:site_name" content="MUUUUUJ">
-<meta property="og:description" content="一篇关于搭建基于NLP的课程分类与推荐系统">
+<meta property="og:description" content="搭建基于NLP的课程分类与推荐系统">
 <meta property="og:image" content="http://yoursite.com/\images\NLP_recommendation-1.png">
 <meta property="og:image" content="http://yoursite.com/\images\NLP_recommendation-2.png">
-<meta property="og:updated_time" content="2016-07-04T09:21:46.163Z">
+<meta property="og:updated_time" content="2016-07-05T04:28:31.408Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NLP-based Course Clustering and Recommendation">
-<meta name="twitter:description" content="一篇关于搭建基于NLP的课程分类与推荐系统">
+<meta name="twitter:description" content="搭建基于NLP的课程分类与推荐系统">
 <meta name="twitter:image" content="http://yoursite.com/\images\NLP_recommendation-1.png">
 
 
@@ -316,8 +316,8 @@
 
       
         <h2 id="数据收集"><a href="#数据收集" class="headerlink" title="数据收集"></a>数据收集</h2><p>收集 UC Berkeley 7004 个课程的信息，每个如 table 1 所示，课程必须包含 department, department code, course number, title, description 才被收录。<br><img src="\images\NLP_recommendation-1.png" alt="NLP_recommendation-1"></p>
-<h2 id="数据预处理"><a href="#数据预处理" class="headerlink" title="数据预处理"></a>数据预处理</h2><p>使用 NLTK 中的 morphy() function 进行词形还原，也可以使用 porter stemmer 算法，但是会去掉多余的 feature. Table 2 为预处理之后的文档<br><img src="\images\NLP_recommendation-2.png" alt="NLP_recommendation-2"></p>
-<h2 id="Features-and-Models"><a href="#Features-and-Models" class="headerlink" title="Features and Models"></a>Features and Models</h2><p>使用 tf-idf 算法，计算关键词的 score ，标题也进行计算，这里 score 越高关联度越大。<br>之后进行向量化，取每篇篇文章中 score 最高的前 n 个关键词，假设共有 N 个关键词 ,$[e_{1},e_{2},\ldots,e_{n}]$,对于一篇文章中的第 n 个关键词$e_{n}=1$否则$e_{n}=0$，将每篇文章向量化。<br>最后使用 K-means 选取初值，EM algorithm 获得最终分类。<br>检索，同样将检索的内容向量化，使用 cosine similiarity , 找出cosine similiarity 最小的。</p>
+<h2 id="数据预处理"><a href="#数据预处理" class="headerlink" title="数据预处理"></a>数据预处理</h2><p>使用 NLTK 中的 morphy() function 进行词形还原，也可以使用 porter stemmer 算法，但是会去掉过多的 feature. Table 2 为预处理之后的文档<br><img src="\images\NLP_recommendation-2.png" alt="NLP_recommendation-2"></p>
+<h2 id="Features-and-Models"><a href="#Features-and-Models" class="headerlink" title="Features and Models"></a>Features and Models</h2><p>使用 tf-idf 算法，计算关键词的 score ，标题也进行计算，这里 score 越高关联度越大。<br>之后进行向量化，取每篇篇文章中 score 最高的前 n 个关键词，假设共有 N 个关键词 ,$[e_{1},e_{2},\ldots,e_{n}]$,对于一篇文章中的第 n 个关键词$e_{n}=1$否则$e_{n}=0$，将每篇文章向量化。<br>最后使用 K-means 选取初值，EM algorithm 获得最终分类。</p>
 <h2 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h2><blockquote>
 <p>Suzuki, Kentaro, and Hyunwoo Park. “NLP-based Course Clustering and Recommendation.” (2009).<br>TF-IDF:<a href="http://www.ruanyifeng.com/blog/2013/03/tf-idf.html" target="_blank" rel="external"> http://www.ruanyifeng.com/blog/2013/03/tf-idf.html</a><br>改进TF-IDF权重公式:<a href="http://www.52nlp.cn/forgetnlp4" target="_blank" rel="external"> http://www.52nlp.cn/forgetnlp4</a></p>
 </blockquote>
@@ -360,6 +360,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/05/Build-ML-with-python-chapter-3/" rel="prev" title="Build Machine Learning Systems with Python chapter 3 reading notes">
+                Build Machine Learning Systems with Python chapter 3 reading notes <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -434,7 +438,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">8</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -442,7 +446,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -451,7 +455,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
