@@ -1,0 +1,674 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="learning notes,SQL," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="mysql pivot raw to column">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql pivot tables">
+<meta property="og:url" content="http://yoursite.com/2016/07/19/mysql-pivot/index.html">
+<meta property="og:site_name" content="MUUUUUJ">
+<meta property="og:description" content="mysql pivot raw to column">
+<meta property="og:image" content="http://yoursite.com/\images\mysql pivot-1.png">
+<meta property="og:image" content="http://yoursite.com/\images\mysql pivot-2.png">
+<meta property="og:image" content="http://yoursite.com/\images\mysql pivot-3.png">
+<meta property="og:image" content="http://yoursite.com/\images\mysql pivot-4.png">
+<meta property="og:image" content="http://yoursite.com/\images\mysql pivot-5.png">
+<meta property="og:updated_time" content="2016-07-19T09:13:23.373Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mysql pivot tables">
+<meta name="twitter:description" content="mysql pivot raw to column">
+<meta name="twitter:image" content="http://yoursite.com/\images\mysql pivot-1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"hide"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/07/19/mysql-pivot/"/>
+
+  <title> mysql pivot tables | MUUUUUJ </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">MUUUUUJ</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                mysql pivot tables
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-07-19T15:32:37+08:00" content="2016-07-19">
+              2016-07-19
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/SQL/" itemprop="url" rel="index">
+                    <span itemprop="name">SQL</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/19/mysql-pivot/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/19/mysql-pivot/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1"></a>Example 1</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span>  </span><br><span class="line">  <span class="keyword">IFNULL</span>(empId,<span class="string">'Totals'</span>) <span class="keyword">AS</span> EmpId,       <span class="comment">-- outer query labels rollup row </span></span><br><span class="line">  sums<span class="number">.2005</span>, sums<span class="number">.2006</span>, sums<span class="number">.2007</span>,       <span class="comment">-- and calculates horizontal sums </span></span><br><span class="line">  sums<span class="number">.2005</span> + sums<span class="number">.2006</span> + sums<span class="number">.2007</span> <span class="keyword">AS</span> Sums </span><br><span class="line"><span class="keyword">FROM</span> (                                   <span class="comment">-- inner query groups by employee </span></span><br><span class="line">  <span class="keyword">SELECT</span>                                 <span class="comment">-- with an expression for each column </span></span><br><span class="line">    EmpID, </span><br><span class="line">    <span class="keyword">SUM</span>(<span class="keyword">IF</span>(Yr=<span class="number">2005</span>,sales,<span class="number">0</span>)) <span class="keyword">As</span> <span class="string">'2005'</span>, </span><br><span class="line">    <span class="keyword">SUM</span>(<span class="keyword">IF</span>(Yr=<span class="number">2006</span>,sales,<span class="number">0</span>)) <span class="keyword">As</span> <span class="string">'2006'</span>, </span><br><span class="line">    <span class="keyword">SUM</span>(<span class="keyword">IF</span>(Yr=<span class="number">2007</span>,sales,<span class="number">0</span>)) <span class="keyword">As</span> <span class="string">'2007'</span> </span><br><span class="line">  <span class="keyword">FROM</span> Sales </span><br><span class="line">  <span class="keyword">GROUP</span> <span class="keyword">BY</span> EmpID <span class="keyword">WITH</span> <span class="keyword">ROLLUP</span> </span><br><span class="line">) <span class="keyword">AS</span> sums;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span>  </span><br><span class="line">  <span class="keyword">IfNull</span>(<span class="keyword">Year</span>,<span class="string">'Totals'</span>) <span class="keyword">Year</span>,  </span><br><span class="line">  Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, <span class="keyword">Oct</span>, Nov, <span class="string">`Dec`</span>,  </span><br><span class="line">  Qty <span class="keyword">AS</span> <span class="keyword">Count</span>,  </span><br><span class="line">  Yrly <span class="keyword">as</span> <span class="string">'Yrly Total'</span> </span><br><span class="line"><span class="keyword">FROM</span> ( </span><br><span class="line">  <span class="keyword">SELECT</span>  </span><br><span class="line">    <span class="keyword">year</span>(orderdate) <span class="keyword">AS</span> <span class="string">'Year'</span>, </span><br><span class="line">    <span class="keyword">Round</span>(<span class="keyword">Sum</span>(<span class="keyword">CASE</span> <span class="keyword">WHEN</span> <span class="keyword">Month</span>(orderdate)= <span class="number">1</span> <span class="keyword">THEN</span> amount <span class="keyword">ELSE</span> <span class="number">0</span> <span class="keyword">END</span>),<span class="number">2</span>) <span class="keyword">AS</span> Jan, </span><br><span class="line">    <span class="keyword">Round</span>(<span class="keyword">Sum</span>(<span class="keyword">CASE</span> <span class="keyword">WHEN</span> <span class="keyword">Month</span>(orderdate)= <span class="number">2</span> <span class="keyword">THEN</span> amount <span class="keyword">ELSE</span> <span class="number">0</span> <span class="keyword">END</span>),<span class="number">2</span>) <span class="keyword">AS</span> Feb, </span><br><span class="line">    <span class="keyword">Round</span>(<span class="keyword">Sum</span>(<span class="keyword">CASE</span> <span class="keyword">WHEN</span> <span class="keyword">Month</span>(orderdate)= <span class="number">3</span> <span class="keyword">THEN</span> amount <span class="keyword">ELSE</span> <span class="number">0</span> <span class="keyword">END</span>),<span class="number">2</span>) <span class="keyword">AS</span> Mar, </span><br><span class="line">    <span class="keyword">Round</span>(<span class="keyword">Sum</span>(<span class="keyword">CASE</span> <span class="keyword">WHEN</span> <span class="keyword">Month</span>(orderdate)= <span class="number">4</span> <span class="keyword">THEN</span> amount <span class="keyword">ELSE</span> <span class="number">0</span> <span class="keyword">END</span>),<span class="number">2</span>) <span class="keyword">AS</span> Apr, </span><br><span class="line">    <span class="keyword">Round</span>(<span class="keyword">Sum</span>(<span class="keyword">CASE</span> <span class="keyword">WHEN</span> <span class="keyword">Month</span>(orderdate)= <span class="number">5</span> <span class="keyword">THEN</span> amount <span class="keyword">ELSE</span> <span class="number">0</span> <span class="keyword">END</span>),<span class="number">2</span>) <span class="keyword">AS</span> May, </span><br><span class="line">    <span class="keyword">Round</span>(<span class="keyword">Sum</span>(<span class="keyword">CASE</span> <span class="keyword">WHEN</span> <span class="keyword">Month</span>(orderdate)= <span class="number">6</span> <span class="keyword">THEN</span> amount <span class="keyword">ELSE</span> <span class="number">0</span> <span class="keyword">END</span>),<span class="number">2</span>) <span class="keyword">AS</span> Jun, </span><br><span class="line">    <span class="keyword">Round</span>(<span class="keyword">Sum</span>(<span class="keyword">CASE</span> <span class="keyword">WHEN</span> <span class="keyword">Month</span>(orderdate)= <span class="number">7</span> <span class="keyword">THEN</span> amount <span class="keyword">ELSE</span> <span class="number">0</span> <span class="keyword">END</span>),<span class="number">2</span>) <span class="keyword">AS</span> Jul, </span><br><span class="line">    <span class="keyword">Round</span>(<span class="keyword">Sum</span>(<span class="keyword">CASE</span> <span class="keyword">WHEN</span> <span class="keyword">Month</span>(orderdate)= <span class="number">8</span> <span class="keyword">THEN</span> amount <span class="keyword">ELSE</span> <span class="number">0</span> <span class="keyword">END</span>),<span class="number">2</span>) <span class="keyword">AS</span> Aug, </span><br><span class="line">    <span class="keyword">Round</span>(<span class="keyword">Sum</span>(<span class="keyword">CASE</span> <span class="keyword">WHEN</span> <span class="keyword">Month</span>(orderdate)= <span class="number">9</span> <span class="keyword">THEN</span> amount <span class="keyword">ELSE</span> <span class="number">0</span> <span class="keyword">END</span>),<span class="number">2</span>) <span class="keyword">AS</span> Sep, </span><br><span class="line">    <span class="keyword">Round</span>(<span class="keyword">Sum</span>(<span class="keyword">CASE</span> <span class="keyword">WHEN</span> <span class="keyword">Month</span>(orderdate)=<span class="number">10</span> <span class="keyword">THEN</span> amount <span class="keyword">ELSE</span> <span class="number">0</span> <span class="keyword">END</span>),<span class="number">2</span>) <span class="keyword">AS</span> <span class="keyword">Oct</span>, </span><br><span class="line">    <span class="keyword">Round</span>(<span class="keyword">Sum</span>(<span class="keyword">CASE</span> <span class="keyword">WHEN</span> <span class="keyword">Month</span>(orderdate)=<span class="number">11</span> <span class="keyword">THEN</span> amount <span class="keyword">ELSE</span> <span class="number">0</span> <span class="keyword">END</span>),<span class="number">2</span>) <span class="keyword">AS</span> Nov, </span><br><span class="line">    <span class="keyword">Round</span>(<span class="keyword">Sum</span>(<span class="keyword">CASE</span> <span class="keyword">WHEN</span> <span class="keyword">Month</span>(orderdate)=<span class="number">12</span> <span class="keyword">THEN</span> amount <span class="keyword">ELSE</span> <span class="number">0</span> <span class="keyword">END</span>),<span class="number">2</span>) <span class="keyword">AS</span> <span class="string">`Dec`</span>, </span><br><span class="line">    <span class="keyword">Count</span>(*) <span class="keyword">AS</span> Qty, </span><br><span class="line">    <span class="keyword">Round</span>(<span class="keyword">Sum</span>(amount),<span class="number">2</span>) <span class="keyword">AS</span> Yrly </span><br><span class="line">  <span class="keyword">FROM</span> orderhist </span><br><span class="line">  <span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="keyword">year</span>  </span><br><span class="line">  <span class="keyword">WITH</span> <span class="keyword">ROLLUP</span> </span><br><span class="line">) <span class="keyword">AS</span> sums ;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span>  </span><br><span class="line">  <span class="keyword">IfNull</span>(<span class="keyword">Year</span>,<span class="string">'Totals'</span>) <span class="keyword">Year</span>,  </span><br><span class="line">  Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, <span class="keyword">Oct</span>, Nov, <span class="string">`Dec`</span>,  </span><br><span class="line">  quantity <span class="keyword">AS</span> <span class="keyword">Count</span>,  </span><br><span class="line">  Yrly <span class="keyword">as</span> <span class="string">'Yrly Total'</span> </span><br><span class="line"><span class="keyword">FROM</span> ( </span><br><span class="line">  <span class="keyword">SELECT</span>  </span><br><span class="line">    <span class="keyword">year</span>(orderdate) <span class="keyword">AS</span> <span class="string">'Year'</span>, </span><br><span class="line">    <span class="keyword">Round</span>(<span class="keyword">Sum</span>(<span class="keyword">If</span>( <span class="keyword">Month</span>(o.orderdate)= <span class="number">1</span>, (d.unitprice*d.quantity)-d.discount, <span class="number">0</span> )), <span class="number">2</span> ) <span class="keyword">AS</span> Jan, </span><br><span class="line">    <span class="keyword">Round</span>(<span class="keyword">Sum</span>(<span class="keyword">If</span>( <span class="keyword">Month</span>(o.orderdate)= <span class="number">2</span>, (d.unitprice*d.quantity)-d.discount, <span class="number">0</span> )), <span class="number">2</span> ) <span class="keyword">AS</span> Feb, </span><br><span class="line">    <span class="keyword">Round</span>(<span class="keyword">Sum</span>(<span class="keyword">If</span>( <span class="keyword">Month</span>(o.orderdate)= <span class="number">3</span>, (d.unitprice*d.quantity)-d.discount, <span class="number">0</span> )), <span class="number">2</span> ) <span class="keyword">AS</span> Mar, </span><br><span class="line">    <span class="keyword">Round</span>(<span class="keyword">Sum</span>(<span class="keyword">If</span>( <span class="keyword">Month</span>(o.orderdate)= <span class="number">4</span>, (d.unitprice*d.quantity)-d.discount, <span class="number">0</span> )), <span class="number">2</span> ) <span class="keyword">AS</span> Apr, </span><br><span class="line">    <span class="keyword">Round</span>(<span class="keyword">Sum</span>(<span class="keyword">If</span>( <span class="keyword">Month</span>(o.orderdate)= <span class="number">5</span>, (d.unitprice*d.quantity)-d.discount, <span class="number">0</span> )), <span class="number">2</span> ) <span class="keyword">AS</span> May, </span><br><span class="line">    <span class="keyword">Round</span>(<span class="keyword">Sum</span>(<span class="keyword">If</span>( <span class="keyword">Month</span>(o.orderdate)= <span class="number">6</span>, (d.unitprice*d.quantity)-d.discount, <span class="number">0</span> )), <span class="number">2</span> ) <span class="keyword">AS</span> Jun, </span><br><span class="line">    <span class="keyword">Round</span>(<span class="keyword">Sum</span>(<span class="keyword">If</span>( <span class="keyword">Month</span>(o.orderdate)= <span class="number">7</span>, (d.unitprice*d.quantity)-d.discount, <span class="number">0</span> )), <span class="number">2</span> ) <span class="keyword">AS</span> Jul, </span><br><span class="line">    <span class="keyword">Round</span>(<span class="keyword">Sum</span>(<span class="keyword">If</span>( <span class="keyword">Month</span>(o.orderdate)= <span class="number">8</span>, (d.unitprice*d.quantity)-d.discount, <span class="number">0</span> )), <span class="number">2</span> ) <span class="keyword">AS</span> Aug, </span><br><span class="line">    <span class="keyword">Round</span>(<span class="keyword">Sum</span>(<span class="keyword">If</span>( <span class="keyword">Month</span>(o.orderdate)= <span class="number">9</span>, (d.unitprice*d.quantity)-d.discount, <span class="number">0</span> )), <span class="number">2</span> ) <span class="keyword">AS</span> Sep, </span><br><span class="line">    <span class="keyword">Round</span>(<span class="keyword">Sum</span>(<span class="keyword">If</span>( <span class="keyword">Month</span>(o.orderdate)=<span class="number">10</span>, (d.unitprice*d.quantity)-d.discount, <span class="number">0</span> )), <span class="number">2</span> ) <span class="keyword">AS</span> <span class="keyword">Oct</span>, </span><br><span class="line">    <span class="keyword">Round</span>(<span class="keyword">Sum</span>(<span class="keyword">If</span>( <span class="keyword">Month</span>(o.orderdate)=<span class="number">11</span>, (d.unitprice*d.quantity)-d.discount, <span class="number">0</span> )), <span class="number">2</span> ) <span class="keyword">AS</span> Nov, </span><br><span class="line">    <span class="keyword">Round</span>(<span class="keyword">Sum</span>(<span class="keyword">If</span>( <span class="keyword">Month</span>(o.orderdate)=<span class="number">12</span>, (d.unitprice*d.quantity)-d.discount, <span class="number">0</span> )), <span class="number">2</span> ) <span class="keyword">AS</span> <span class="string">`Dec`</span>, </span><br><span class="line">    <span class="keyword">Count</span>(*) <span class="keyword">AS</span> quantity, </span><br><span class="line">    <span class="keyword">Round</span>(<span class="keyword">Sum</span>((unitprice*quantity)-discount),<span class="number">2</span>) <span class="keyword">AS</span> Yrly </span><br><span class="line">  <span class="keyword">FROM</span> orders o </span><br><span class="line">  <span class="keyword">JOIN</span> orderdetails d <span class="keyword">USING</span>(orderID) </span><br><span class="line">  <span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="keyword">year</span>  </span><br><span class="line">  <span class="keyword">WITH</span> <span class="keyword">ROLLUP</span> </span><br><span class="line">) <span class="keyword">AS</span> sums ;</span><br></pre></td></tr></table></figure>
+<h1 id="Example-2"><a href="#Example-2" class="headerlink" title="Example 2"></a>Example 2</h1><p><strong>table</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">+------+------+------+-------+</span><br><span class="line">| pkey | name | exam | score |</span><br><span class="line">+------+------+------+-------+</span><br><span class="line">|    1 | Bob  |    1 |    75 |</span><br><span class="line">|    2 | Bob  |    2 |    77 |</span><br><span class="line">|    3 | Bob  |    3 |    78 |</span><br><span class="line">|    4 | Bob  |    4 |    80 |</span><br><span class="line">|    5 | Sue  |    1 |    90 |</span><br><span class="line">|    6 | Sue  |    2 |    97 |</span><br><span class="line">|    7 | Sue  |    3 |    98 |</span><br><span class="line">|    8 | Sue  |    4 |    99 |</span><br><span class="line">+------+------+------+-------+</span><br></pre></td></tr></table></figure></p>
+<h2 id="way-1"><a href="#way-1" class="headerlink" title="way-1"></a>way-1</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">name</span>,</span><br><span class="line"><span class="keyword">sum</span>(score*(<span class="number">1</span>-<span class="keyword">abs</span>(<span class="keyword">sign</span>(exam<span class="number">-1</span>)))) <span class="keyword">as</span> exam1,</span><br><span class="line"><span class="keyword">sum</span>(score*(<span class="number">1</span>-<span class="keyword">abs</span>(<span class="keyword">sign</span>(exam<span class="number">-2</span>)))) <span class="keyword">as</span> exam2,</span><br><span class="line"><span class="keyword">sum</span>(score*(<span class="number">1</span>-<span class="keyword">abs</span>(<span class="keyword">sign</span>(exam<span class="number">-3</span>)))) <span class="keyword">as</span> exam3,</span><br><span class="line"><span class="keyword">sum</span>(score*(<span class="number">1</span>-<span class="keyword">abs</span>(<span class="keyword">sign</span>(exam<span class="number">-4</span>)))) <span class="keyword">as</span> exam4</span><br><span class="line"><span class="keyword">from</span> exams <span class="keyword">group</span> <span class="keyword">by</span> <span class="keyword">name</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="way-2"><a href="#way-2" class="headerlink" title="way-2"></a>way-2</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">name</span>,</span><br><span class="line"><span class="keyword">SUM</span>(<span class="keyword">IF</span>(exam=<span class="number">1</span>,score,<span class="literal">NULL</span>)) <span class="keyword">AS</span> exam1,</span><br><span class="line"><span class="keyword">SUM</span>(<span class="keyword">IF</span>(exam=<span class="number">2</span>,score,<span class="literal">NULL</span>)) <span class="keyword">AS</span> exam2,</span><br><span class="line"><span class="keyword">SUM</span>(<span class="keyword">IF</span>(exam=<span class="number">3</span>,score,<span class="literal">NULL</span>)) <span class="keyword">AS</span> exam3,</span><br><span class="line"><span class="keyword">SUM</span>(<span class="keyword">IF</span>(exam=<span class="number">4</span>,score,<span class="number">0</span>)) <span class="keyword">AS</span> exam4</span><br><span class="line"><span class="keyword">FROM</span> exams <span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="keyword">name</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>result</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">+------+-------+-------+-------+-------+</span><br><span class="line">| name | exam1 | exam2 | exam3 | exam4 |</span><br><span class="line">+------+-------+-------+-------+-------+</span><br><span class="line">| Bob  |    75 |    77 |    78 |    80 |</span><br><span class="line">| Sue  |    90 |    97 |    98 |    99 |</span><br><span class="line">+------+-------+-------+-------+-------+</span><br></pre></td></tr></table></figure></p>
+<h1 id="Example-3"><a href="#Example-3" class="headerlink" title="Example 3"></a>Example 3</h1><p><img src="\images\mysql pivot-1.png" alt="mysql pivot-1"><br><img src="\images\mysql pivot-2.png" alt="mysql pivot-2"><br><img src="\images\mysql pivot-3.png" alt="mysql pivot-3"></p>
+<h1 id="My-Problem"><a href="#My-Problem" class="headerlink" title="My Problem"></a>My Problem</h1><p>Daily Customer Growth and Daily Customer Growth by Gender<br><img src="\images\mysql pivot-4.png" alt="mysql pivot-4"></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">date_format</span>(SignedUp,<span class="string">'%Y%m%d'</span>) <span class="keyword">days</span>, </span><br><span class="line"><span class="keyword">count</span>(<span class="keyword">case</span> <span class="keyword">when</span> Gender = <span class="string">'Male'</span> <span class="keyword">then</span> <span class="keyword">id</span> <span class="keyword">else</span> <span class="literal">null</span> <span class="keyword">end</span>) <span class="keyword">as</span> m,</span><br><span class="line"><span class="keyword">count</span>(<span class="keyword">case</span> <span class="keyword">when</span> Gender = <span class="string">'Female'</span> <span class="keyword">then</span> <span class="keyword">id</span> <span class="keyword">else</span> <span class="literal">null</span> <span class="keyword">end</span> )<span class="keyword">as</span> f,</span><br><span class="line"><span class="keyword">count</span>(*) <span class="keyword">as</span> total</span><br><span class="line"><span class="keyword">from</span> customerdatasource.customerdataset</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> <span class="keyword">days</span></span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">days</span></span><br></pre></td></tr></table></figure>
+<p><img src="\images\mysql pivot-5.png" alt="mysql pivot-5"></p>
+<h1 id="unsolved-problem"><a href="#unsolved-problem" class="headerlink" title="unsolved problem"></a>unsolved problem</h1><ol>
+<li>unpivot in mysql:</li>
+<li>Pivot table with dynamic columns in MySQL:<a href="http://stratosprovatopoulos.com/web-development/mysql/pivot-table-with-dynamic-columns/" target="_blank" rel="external">http://stratosprovatopoulos.com/web-development/mysql/pivot-table-with-dynamic-columns/</a></li>
+<li>pivot function in SQL server: <a href="http://www.codeproject.com/Tips/500811/Simple-Way-To-Use-Pivot-In-SQL-Query" target="_blank" rel="external">http://www.codeproject.com/Tips/500811/Simple-Way-To-Use-Pivot-In-SQL-Query</a><br><a href="https://technet.microsoft.com/en-us/library/ms177410(v=sql.105" target="_blank" rel="external">https://technet.microsoft.com/en-us/library/ms177410(v=sql.105).aspx</a>.aspx)<h1 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h1><blockquote>
+<p><a href="datacharmer.org/downloads/pivot_tables_mysql_5.pdf">datacharmer.org/downloads/pivot_tables_mysql_5.pdf</a><br><a href="http://blog.csdn.net/redwood_lin/article/details/1550606" target="_blank" rel="external">http://blog.csdn.net/redwood_lin/article/details/1550606</a><br><a href="http://www.artfulsoftware.com/infotree/qrytip.php?id=78" target="_blank" rel="external">http://www.artfulsoftware.com/infotree/qrytip.php?id=78</a></p>
+</blockquote>
+</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/learning-notes/" rel="tag">#learning notes</a>
+          
+            <a href="/tags/SQL/" rel="tag">#SQL</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/12/LSA-LSI/" rel="next" title="LSA(LSI)">
+                <i class="fa fa-chevron-left"></i> LSA(LSI)
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/20/pentaho-begin/" rel="prev" title="pentaho community BA 6.1">
+                pentaho community BA 6.1 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/touxiang.jpg"
+               alt="Xiaxin Xu" />
+          <p class="site-author-name" itemprop="name">Xiaxin Xu</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Example-1"><span class="nav-number">1.</span> <span class="nav-text">Example 1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Example-2"><span class="nav-number">2.</span> <span class="nav-text">Example 2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#way-1"><span class="nav-number">2.1.</span> <span class="nav-text">way-1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#way-2"><span class="nav-number">2.2.</span> <span class="nav-text">way-2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Example-3"><span class="nav-number">3.</span> <span class="nav-text">Example 3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#My-Problem"><span class="nav-number">4.</span> <span class="nav-text">My Problem</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#unsolved-problem"><span class="nav-number">5.</span> <span class="nav-text">unsolved problem</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#reference"><span class="nav-number">6.</span> <span class="nav-text">reference</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiaxin Xu</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'muuuuuj';
+      var disqus_identifier = '2016/07/19/mysql-pivot/';
+      var disqus_title = "mysql pivot tables";
+      var disqus_url = 'http://yoursite.com/2016/07/19/mysql-pivot/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+
+  
+  
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+
+</body>
+</html>

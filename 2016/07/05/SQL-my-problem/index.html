@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="SQL,learning notes," />
+  <meta name="keywords" content="learning notes,SQL," />
 
 
 
@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/07/05/SQL-my-problem/index.html">
 <meta property="og:site_name" content="MUUUUUJ">
 <meta property="og:description" content="www.w3schools.com/sql/ 学习第一遍后的一些问题">
-<meta property="og:updated_time" content="2016-07-06T02:19:37.378Z">
+<meta property="og:updated_time" content="2016-07-22T05:19:58.648Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL学习过程中的一些问题">
 <meta name="twitter:description" content="www.w3schools.com/sql/ 学习第一遍后的一些问题">
@@ -324,6 +324,8 @@
 <li><code>delete</code>是DML语句,不会自动提交。<code>drop</code>/<code>truncate</code>都是DDL语句,执行后会自动提交。 <code>drop</code>一般用于删除整体性数据 如表，模式，索引，视图，完整性限制等delete用于删除局部性数据 如表中的某一元组<code>DROP</code>把表结构都删了<code>DELETE</code>只是把数据清掉 当你不再需要该表时， 用 <code>drop</code>;当你仍要保留该表，但要删除所有记录时， 用 <code>truncate</code>;当你要删除部分记录时（always with a WHERE clause), 用 <code>delete</code>.</li>
 </ul>
 <p><strong>6. 字长为2，<code>mid()</code>取超过范围会怎么样。</strong><br>超出的地方为空</p>
+<p><strong>7. Error Code: 1175. You are using safe update</strong><br>SET SQL_SAFE_UPDATES = 0;</p>
+<p><strong>8.列名有空格怎么办</strong><br><code>列名</code></p>
 
       
     </div>
@@ -345,9 +347,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/SQL/" rel="tag">#SQL</a>
-          
             <a href="/tags/learning-notes/" rel="tag">#learning notes</a>
+          
+            <a href="/tags/SQL/" rel="tag">#SQL</a>
           
         </div>
       
@@ -441,7 +443,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -449,7 +451,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -458,7 +460,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
