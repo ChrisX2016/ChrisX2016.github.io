@@ -84,20 +84,21 @@
 
 
 
-<meta name="description" content="Introduction to Predictive Modeling-From Correlation to Supervised Segmentation">
+<meta name="description" content="Fawcett T, Provost F. Data Science for Business[M]. O&apos;Reilly Media, 2013.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Data Science for Business Chapter 3 阅读笔记">
-<meta property="og:url" content="http://yoursite.com/2016/07/04/DS-for-Business-Chapter-3/index.html">
+<meta property="og:title" content="Data Science for Business">
+<meta property="og:url" content="http://yoursite.com/2016/07/31/DS-for-Business/index.html">
 <meta property="og:site_name" content="MUUUUUJ">
-<meta property="og:description" content="Introduction to Predictive Modeling-From Correlation to Supervised Segmentation">
+<meta property="og:description" content="Fawcett T, Provost F. Data Science for Business[M]. O&apos;Reilly Media, 2013.">
 <meta property="og:image" content="http://yoursite.com/\images\DS_for_B_3-1.png">
 <meta property="og:image" content="http://yoursite.com/\images\DS_for_B_3-2.png">
 <meta property="og:image" content="http://yoursite.com/\images\DS_for_B_3-3.png">
 <meta property="og:image" content="http://yoursite.com/\images\DS_for_B_3-4.png">
-<meta property="og:updated_time" content="2016-07-28T08:30:45.153Z">
+<meta property="og:image" content="http://yoursite.com/\images\DS_for_B_5-1.png">
+<meta property="og:updated_time" content="2016-07-31T15:02:13.443Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Data Science for Business Chapter 3 阅读笔记">
-<meta name="twitter:description" content="Introduction to Predictive Modeling-From Correlation to Supervised Segmentation">
+<meta name="twitter:title" content="Data Science for Business">
+<meta name="twitter:description" content="Fawcett T, Provost F. Data Science for Business[M]. O&apos;Reilly Media, 2013.">
 <meta name="twitter:image" content="http://yoursite.com/\images\DS_for_B_3-1.png">
 
 
@@ -119,9 +120,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/07/04/DS-for-Business-Chapter-3/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/07/31/DS-for-Business/"/>
 
-  <title> Data Science for Business Chapter 3 阅读笔记 | MUUUUUJ </title>
+  <title> Data Science for Business | MUUUUUJ </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -251,7 +252,7 @@
             
             
               
-                Data Science for Business Chapter 3 阅读笔记
+                Data Science for Business
               
             
           </h1>
@@ -263,8 +264,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-07-04T09:00:39+08:00" content="2016-07-04">
-              2016-07-04
+            <time itemprop="dateCreated" datetime="2016-07-31T21:52:28+08:00" content="2016-07-31">
+              2016-07-31
             </time>
           </span>
 
@@ -293,8 +294,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/07/04/DS-for-Business-Chapter-3/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/04/DS-for-Business-Chapter-3/" itemprop="commentsCount"></span>
+                <a href="/2016/07/31/DS-for-Business/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/31/DS-for-Business/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -317,14 +318,34 @@
       
 
       
-        <h1 id="Data-Science-for-Business-Chapter-2-reading-notes"><a href="#Data-Science-for-Business-Chapter-2-reading-notes" class="headerlink" title="Data Science for Business Chapter 2 reading notes"></a>Data Science for Business Chapter 2 reading notes</h1><p><strong>Fundamental concepts:</strong> Identifying informative attributes; Segmenting data by progressive attribute selection.<br><strong>Exemplary techniques:</strong> Finding correlations; Attribute/variable selection; Tree induction.<br>主要讲 predictive modeling.</p>
+        <h1 id="Data-Science-for-Business-Chapter-3-reading-notes"><a href="#Data-Science-for-Business-Chapter-3-reading-notes" class="headerlink" title="Data Science for Business Chapter 3 reading notes"></a>Data Science for Business Chapter 3 reading notes</h1><p>description: Introduction to Predictive Modeling-From Correlation to Supervised Segmentation</p>
+<p><strong>Fundamental concepts:</strong> Identifying informative attributes; Segmenting data by progressive attribute selection.<br><strong>Exemplary techniques:</strong> Finding correlations; Attribute/variable selection; Tree induction.<br>主要讲 predictive modeling.</p>
 <h2 id="Models-Induction-and-Prediction"><a href="#Models-Induction-and-Prediction" class="headerlink" title="Models, Induction, and Prediction"></a>Models, Induction, and Prediction</h2><p><img src="\images\DS_for_B_3-1.png" alt="DS_for_B_3-1"><br>此处有关于 supervised variable 的定义. attributes variable, target variable. 可从 figure 3-1 理解。</p>
 <h2 id="Selecting-Informative-Attributes"><a href="#Selecting-Informative-Attributes" class="headerlink" title="Selecting Informative Attributes"></a>Selecting Informative Attributes</h2><p><strong>entropy:</strong> $H(x) = -\sum_{i=0}^{N} p_{i} \log(p_{i})$, measure how disordered any set is.<br><strong>Information gain:</strong>  measure how much an attribute improves (decreases) entropy over the whole segmentation it creates. Information gain is a synonym for Kullback–Leibler divergence.<br>    $IG(parent,children) = H(parent)- [p(c_{1})\times H(c_{1})+p(c_{2})\times H(c_{2})]$<br>(选取Information gain 较高的分类方法)</p>
 <h2 id="Example-Attribute-Selection-with-Information-Gain"><a href="#Example-Attribute-Selection-with-Information-Gain" class="headerlink" title="Example: Attribute Selection with Information Gain"></a>Example: Attribute Selection with Information Gain</h2><p>datasource: <a href="https://archive.ics.uci.edu/ml/datasets/Mushroom" target="_blank" rel="external">https://archive.ics.uci.edu/ml/datasets/Mushroom</a><br><img src="\images\DS_for_B_3-2.png" alt="DS_for_B_3-2"><br><img src="\images\DS_for_B_3-3.png" alt="DS_for_B_3-3"><br><img src="\images\DS_for_B_3-4.png" alt="DS_for_B_3-4."><br>选取imformation gain 最大的attribute做为分类依据，即图中entropy面积最小的。</p>
 <h2 id="Probability-Estimation"><a href="#Probability-Estimation" class="headerlink" title="Probability Estimation"></a>Probability Estimation</h2><p>a frequency-basedestimate of class membership probability:<br>$ P=\frac{n}{n+m}$<br>use Laplace correction, The equation for binary class probability estimation:<br>$ P=\frac{n+1}{n+m+2}$</p>
 <h2 id="Example-Addressing-the-Churn-Problem-with-Tree-Induction"><a href="#Example-Addressing-the-Churn-Problem-with-Tree-Induction" class="headerlink" title="Example: Addressing the Churn Problem with Tree Induction"></a>Example: Addressing the Churn Problem with Tree Induction</h2><p>这里注意一个问题，每一个分支都要重新算一次imformation gain,来选取分类标准。</p>
-<h1 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h1><blockquote>
+<h2 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h2><blockquote>
 <p>Fawcett T, Provost F. Data Science for Business[M]. O’Reilly Media, 2013.<br>information gain and decision tree: <a href="http://blog.sina.com.cn/s/blog_67bc5aa60100qays.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_67bc5aa60100qays.html</a><br>Information gain in decision trees: <a href="https://en.wikipedia.org/wiki/Information_gain_in_decision_trees" target="_blank" rel="external">https://en.wikipedia.org/wiki/Information_gain_in_decision_trees</a></p>
+</blockquote>
+<hr>
+<h1 id="Data-Science-for-Business-Chapter-4-reading-notes"><a href="#Data-Science-for-Business-Chapter-4-reading-notes" class="headerlink" title="Data Science for Business Chapter 4 reading notes"></a>Data Science for Business Chapter 4 reading notes</h1><p>description: Fitting a Model to Data</p>
+<p><strong>Fundamental concepts:</strong> Finding “optimal” model parameters based on data; Choosing the goal for data mining; Objective functions; Loss functions.<br><strong>Exemplary techniques:</strong> Linear regression; Logistic regression; Support-vector machines.</p>
+<h2 id="Linear-Discriminant-Functions"><a href="#Linear-Discriminant-Functions" class="headerlink" title="Linear Discriminant Functions"></a>Linear Discriminant Functions</h2><p> A general linear model:  $f(x)=w_{0}+w_{1}x_{1}+w_{2}x_{2}+\cdots$</p>
+<p> Linear regression, logistic regression, and support vector machines</p>
+<h2 id="An-Example-of-Mining-a-Linear-Discriminant-from-Data"><a href="#An-Example-of-Mining-a-Linear-Discriminant-from-Data" class="headerlink" title="An Example of Mining a Linear Discriminant from Data"></a>An Example of Mining a Linear Discriminant from Data</h2><p>UCI Dataset Repository,Iris dataset: <a href="https://archive.ics.uci.edu/ml/datasets/Iris" target="_blank" rel="external">https://archive.ics.uci.edu/ml/datasets/Iris</a></p>
+<h2 id="Linear-Discriminant-Functions-for-Scoring-and-Ranking-Instances"><a href="#Linear-Discriminant-Functions-for-Scoring-and-Ranking-Instances" class="headerlink" title="Linear Discriminant Functions for Scoring and Ranking Instances"></a>Linear Discriminant Functions for Scoring and Ranking Instances</h2><p>$f(x)$的值会告诉我们likelihood of belonging to the class</p>
+<h2 id="Linear-regression"><a href="#Linear-regression" class="headerlink" title="Linear regression"></a>Linear regression</h2><p>Log-odds linear function:<br>$log \left(\frac{p_{+}(x)}{1-p_{+}(x)}\right) =f(x)=w_{0}+w_{1}x_{1}+w_{2}x_{2}+\cdots$</p>
+<p>The logistic function:<br>$p_{+}(x)=\frac{1}{1+e^{-f(x)}}$</p>
+<h2 id="reference-1"><a href="#reference-1" class="headerlink" title="reference"></a>reference</h2><blockquote>
+<p>Fawcett T, Provost F. Data Science for Business[M]. O’Reilly Media, 2013.</p>
+</blockquote>
+<hr>
+<h1 id="Data-Science-for-Business-Chapter-5-reading-notes"><a href="#Data-Science-for-Business-Chapter-5-reading-notes" class="headerlink" title="Data Science for Business Chapter 5 reading notes"></a>Data Science for Business Chapter 5 reading notes</h1><p>description: Overfitting and Its Avoidance</p>
+<p><strong>Fundamental concepts: </strong>Generalization; Fitting and overfitting; Complexity control.<br><strong>Exemplary techniques: </strong>Cross-validation; Attribute selection; Tree pruning; Regularization</p>
+<h2 id="Overfitting-Examined"><a href="#Overfitting-Examined" class="headerlink" title="Overfitting Examined"></a>Overfitting Examined</h2><p><img src="\images\DS_for_B_5-1.png" alt="DS_for_B_5-1"></p>
+<h2 id="reference-2"><a href="#reference-2" class="headerlink" title="reference"></a>reference</h2><blockquote>
+<p>Fawcett T, Provost F. Data Science for Business[M]. O’Reilly Media, 2013.</p>
 </blockquote>
 
       
@@ -358,17 +379,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/03/DS-for-Business-Chapter-2/" rel="next" title="Data Science for Business Chapter 2 阅读笔记">
-                <i class="fa fa-chevron-left"></i> Data Science for Business Chapter 2 阅读笔记
+              <a href="/2016/07/20/pentaho-begin/" rel="next" title="pentaho community BA 6.1">
+                <i class="fa fa-chevron-left"></i> pentaho community BA 6.1
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/07/04/NLP-based-Course-Clustering-and-Recommendation/" rel="prev" title="NLP-based Course Clustering and Recommendation">
-                NLP-based Course Clustering and Recommendation <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -443,7 +460,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -489,7 +506,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Science-for-Business-Chapter-2-reading-notes"><span class="nav-number">1.</span> <span class="nav-text">Data Science for Business Chapter 2 reading notes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Models-Induction-and-Prediction"><span class="nav-number">1.1.</span> <span class="nav-text">Models, Induction, and Prediction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Selecting-Informative-Attributes"><span class="nav-number">1.2.</span> <span class="nav-text">Selecting Informative Attributes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example-Attribute-Selection-with-Information-Gain"><span class="nav-number">1.3.</span> <span class="nav-text">Example: Attribute Selection with Information Gain</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Probability-Estimation"><span class="nav-number">1.4.</span> <span class="nav-text">Probability Estimation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example-Addressing-the-Churn-Problem-with-Tree-Induction"><span class="nav-number">1.5.</span> <span class="nav-text">Example: Addressing the Churn Problem with Tree Induction</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#reference"><span class="nav-number">2.</span> <span class="nav-text">reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Science-for-Business-Chapter-3-reading-notes"><span class="nav-number">1.</span> <span class="nav-text">Data Science for Business Chapter 3 reading notes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Models-Induction-and-Prediction"><span class="nav-number">1.1.</span> <span class="nav-text">Models, Induction, and Prediction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Selecting-Informative-Attributes"><span class="nav-number">1.2.</span> <span class="nav-text">Selecting Informative Attributes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example-Attribute-Selection-with-Information-Gain"><span class="nav-number">1.3.</span> <span class="nav-text">Example: Attribute Selection with Information Gain</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Probability-Estimation"><span class="nav-number">1.4.</span> <span class="nav-text">Probability Estimation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example-Addressing-the-Churn-Problem-with-Tree-Induction"><span class="nav-number">1.5.</span> <span class="nav-text">Example: Addressing the Churn Problem with Tree Induction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference"><span class="nav-number">1.6.</span> <span class="nav-text">reference</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Science-for-Business-Chapter-4-reading-notes"><span class="nav-number">2.</span> <span class="nav-text">Data Science for Business Chapter 4 reading notes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linear-Discriminant-Functions"><span class="nav-number">2.1.</span> <span class="nav-text">Linear Discriminant Functions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#An-Example-of-Mining-a-Linear-Discriminant-from-Data"><span class="nav-number">2.2.</span> <span class="nav-text">An Example of Mining a Linear Discriminant from Data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linear-Discriminant-Functions-for-Scoring-and-Ranking-Instances"><span class="nav-number">2.3.</span> <span class="nav-text">Linear Discriminant Functions for Scoring and Ranking Instances</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linear-regression"><span class="nav-number">2.4.</span> <span class="nav-text">Linear regression</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference-1"><span class="nav-number">2.5.</span> <span class="nav-text">reference</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Science-for-Business-Chapter-5-reading-notes"><span class="nav-number">3.</span> <span class="nav-text">Data Science for Business Chapter 5 reading notes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Overfitting-Examined"><span class="nav-number">3.1.</span> <span class="nav-text">Overfitting Examined</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference-2"><span class="nav-number">3.2.</span> <span class="nav-text">reference</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
@@ -609,9 +626,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'muuuuuj';
-      var disqus_identifier = '2016/07/04/DS-for-Business-Chapter-3/';
-      var disqus_title = "Data Science for Business Chapter 3 阅读笔记";
-      var disqus_url = 'http://yoursite.com/2016/07/04/DS-for-Business-Chapter-3/';
+      var disqus_identifier = '2016/07/31/DS-for-Business/';
+      var disqus_title = "Data Science for Business";
+      var disqus_url = 'http://yoursite.com/2016/07/31/DS-for-Business/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
