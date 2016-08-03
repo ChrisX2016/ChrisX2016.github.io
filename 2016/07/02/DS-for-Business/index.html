@@ -87,7 +87,7 @@
 <meta name="description" content="Fawcett T, Provost F. Data Science for Business[M]. O&apos;Reilly Media, 2013.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Data Science for Business">
-<meta property="og:url" content="http://yoursite.com/2016/07/31/DS-for-Business/index.html">
+<meta property="og:url" content="http://yoursite.com/2016/07/02/DS-for-Business/index.html">
 <meta property="og:site_name" content="MUUUUUJ">
 <meta property="og:description" content="Fawcett T, Provost F. Data Science for Business[M]. O&apos;Reilly Media, 2013.">
 <meta property="og:image" content="http://yoursite.com/\images\DS_for_B_3-1.png">
@@ -95,7 +95,10 @@
 <meta property="og:image" content="http://yoursite.com/\images\DS_for_B_3-3.png">
 <meta property="og:image" content="http://yoursite.com/\images\DS_for_B_3-4.png">
 <meta property="og:image" content="http://yoursite.com/\images\DS_for_B_5-1.png">
-<meta property="og:updated_time" content="2016-07-31T15:02:13.443Z">
+<meta property="og:image" content="http://yoursite.com/\images\DS_for_B_5-2.png">
+<meta property="og:image" content="http://yoursite.com/\images\DS_for_B_5-3.png">
+<meta property="og:image" content="http://yoursite.com/\images\DS_for_B_5-4.png">
+<meta property="og:updated_time" content="2016-08-01T06:38:36.871Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Data Science for Business">
 <meta name="twitter:description" content="Fawcett T, Provost F. Data Science for Business[M]. O&apos;Reilly Media, 2013.">
@@ -120,7 +123,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/07/31/DS-for-Business/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/07/02/DS-for-Business/"/>
 
   <title> Data Science for Business | MUUUUUJ </title>
 </head>
@@ -264,8 +267,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-07-31T21:52:28+08:00" content="2016-07-31">
-              2016-07-31
+            <time itemprop="dateCreated" datetime="2016-07-02T21:52:28+08:00" content="2016-07-02">
+              2016-07-02
             </time>
           </span>
 
@@ -294,8 +297,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/07/31/DS-for-Business/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/31/DS-for-Business/" itemprop="commentsCount"></span>
+                <a href="/2016/07/02/DS-for-Business/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/02/DS-for-Business/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -343,7 +346,15 @@
 <hr>
 <h1 id="Data-Science-for-Business-Chapter-5-reading-notes"><a href="#Data-Science-for-Business-Chapter-5-reading-notes" class="headerlink" title="Data Science for Business Chapter 5 reading notes"></a>Data Science for Business Chapter 5 reading notes</h1><p>description: Overfitting and Its Avoidance</p>
 <p><strong>Fundamental concepts: </strong>Generalization; Fitting and overfitting; Complexity control.<br><strong>Exemplary techniques: </strong>Cross-validation; Attribute selection; Tree pruning; Regularization</p>
-<h2 id="Overfitting-Examined"><a href="#Overfitting-Examined" class="headerlink" title="Overfitting Examined"></a>Overfitting Examined</h2><p><img src="\images\DS_for_B_5-1.png" alt="DS_for_B_5-1"></p>
+<h2 id="Overfitting-Examined"><a href="#Overfitting-Examined" class="headerlink" title="Overfitting Examined"></a>Overfitting Examined</h2><p><img src="\images\DS_for_B_5-1.png" alt="DS_for_B_5-1"><br><strong>fitting graph</strong>, training set and test set(holdout),并不是越复杂的model越好</p>
+<p><img src="\images\DS_for_B_5-2.png" alt="DS_for_B_5-2"><br>Cross-validation的用法如上图所示,then compute the average and standard deviation</p>
+<h2 id="Learning-Curves"><a href="#Learning-Curves" class="headerlink" title="Learning Curves"></a>Learning Curves</h2><p><img src="\images\DS_for_B_5-3.png" alt="DS_for_B_5-3"><br><strong>learning curve</strong>, A plot of the generalization performance against the amount of training data is called a learning curve.<br><img src="\images\DS_for_B_5-4.png" alt="DS_for_B_5-4"><br><strong>fitting graph</strong>, shows the generalization performance as well as the performance on the training data, but plotted against model complexity</p>
+<h2 id="Overfitting-Avoidance-and-Complexity-Control"><a href="#Overfitting-Avoidance-and-Complexity-Control" class="headerlink" title="Overfitting Avoidance and Complexity Control"></a>Overfitting Avoidance and Complexity Control</h2><h3 id="Avoiding-Overfitting-with-Tree-Induction"><a href="#Avoiding-Overfitting-with-Tree-Induction" class="headerlink" title="Avoiding Overfitting with Tree Induction"></a>Avoiding Overfitting with Tree Induction</h3><ol>
+<li>to stopgrowing the tree before it gets too complex</li>
+<li>to grow the tree until it is too large, then “prune” it back, reducing its size (and thereby its complexity).<br>for 1 限定每个leaf中instance的个数<br>for 2 prune 知道reduce accuracy</li>
+</ol>
+<h3 id="A-General-Method-for-Avoiding-Overfitting"><a href="#A-General-Method-for-Avoiding-Overfitting" class="headerlink" title="A General Method for Avoiding Overfitting"></a>A General Method for Avoiding Overfitting</h3><p>first find complexity parameter $C$, then bulid model </p>
+<h3 id="Avoiding-Overfitting-for-Parameter-Optimization"><a href="#Avoiding-Overfitting-for-Parameter-Optimization" class="headerlink" title="Avoiding Overfitting for Parameter Optimization"></a>Avoiding Overfitting for Parameter Optimization</h3><p>regularization, add penalty</p>
 <h2 id="reference-2"><a href="#reference-2" class="headerlink" title="reference"></a>reference</h2><blockquote>
 <p>Fawcett T, Provost F. Data Science for Business[M]. O’Reilly Media, 2013.</p>
 </blockquote>
@@ -379,13 +390,17 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/20/pentaho-begin/" rel="next" title="pentaho community BA 6.1">
-                <i class="fa fa-chevron-left"></i> pentaho community BA 6.1
+              <a href="/2016/06/27/keras-quick-start/" rel="next" title="keras quick start">
+                <i class="fa fa-chevron-left"></i> keras quick start
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/04/NLP-based-Course-Clustering-and-Recommendation/" rel="prev" title="NLP-based Course Clustering and Recommendation">
+                NLP-based Course Clustering and Recommendation <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -460,7 +475,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -468,7 +483,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -477,7 +492,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -506,7 +521,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Science-for-Business-Chapter-3-reading-notes"><span class="nav-number">1.</span> <span class="nav-text">Data Science for Business Chapter 3 reading notes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Models-Induction-and-Prediction"><span class="nav-number">1.1.</span> <span class="nav-text">Models, Induction, and Prediction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Selecting-Informative-Attributes"><span class="nav-number">1.2.</span> <span class="nav-text">Selecting Informative Attributes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example-Attribute-Selection-with-Information-Gain"><span class="nav-number">1.3.</span> <span class="nav-text">Example: Attribute Selection with Information Gain</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Probability-Estimation"><span class="nav-number">1.4.</span> <span class="nav-text">Probability Estimation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example-Addressing-the-Churn-Problem-with-Tree-Induction"><span class="nav-number">1.5.</span> <span class="nav-text">Example: Addressing the Churn Problem with Tree Induction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference"><span class="nav-number">1.6.</span> <span class="nav-text">reference</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Science-for-Business-Chapter-4-reading-notes"><span class="nav-number">2.</span> <span class="nav-text">Data Science for Business Chapter 4 reading notes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linear-Discriminant-Functions"><span class="nav-number">2.1.</span> <span class="nav-text">Linear Discriminant Functions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#An-Example-of-Mining-a-Linear-Discriminant-from-Data"><span class="nav-number">2.2.</span> <span class="nav-text">An Example of Mining a Linear Discriminant from Data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linear-Discriminant-Functions-for-Scoring-and-Ranking-Instances"><span class="nav-number">2.3.</span> <span class="nav-text">Linear Discriminant Functions for Scoring and Ranking Instances</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linear-regression"><span class="nav-number">2.4.</span> <span class="nav-text">Linear regression</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference-1"><span class="nav-number">2.5.</span> <span class="nav-text">reference</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Science-for-Business-Chapter-5-reading-notes"><span class="nav-number">3.</span> <span class="nav-text">Data Science for Business Chapter 5 reading notes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Overfitting-Examined"><span class="nav-number">3.1.</span> <span class="nav-text">Overfitting Examined</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference-2"><span class="nav-number">3.2.</span> <span class="nav-text">reference</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Science-for-Business-Chapter-3-reading-notes"><span class="nav-number">1.</span> <span class="nav-text">Data Science for Business Chapter 3 reading notes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Models-Induction-and-Prediction"><span class="nav-number">1.1.</span> <span class="nav-text">Models, Induction, and Prediction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Selecting-Informative-Attributes"><span class="nav-number">1.2.</span> <span class="nav-text">Selecting Informative Attributes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example-Attribute-Selection-with-Information-Gain"><span class="nav-number">1.3.</span> <span class="nav-text">Example: Attribute Selection with Information Gain</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Probability-Estimation"><span class="nav-number">1.4.</span> <span class="nav-text">Probability Estimation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example-Addressing-the-Churn-Problem-with-Tree-Induction"><span class="nav-number">1.5.</span> <span class="nav-text">Example: Addressing the Churn Problem with Tree Induction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference"><span class="nav-number">1.6.</span> <span class="nav-text">reference</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Science-for-Business-Chapter-4-reading-notes"><span class="nav-number">2.</span> <span class="nav-text">Data Science for Business Chapter 4 reading notes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linear-Discriminant-Functions"><span class="nav-number">2.1.</span> <span class="nav-text">Linear Discriminant Functions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#An-Example-of-Mining-a-Linear-Discriminant-from-Data"><span class="nav-number">2.2.</span> <span class="nav-text">An Example of Mining a Linear Discriminant from Data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linear-Discriminant-Functions-for-Scoring-and-Ranking-Instances"><span class="nav-number">2.3.</span> <span class="nav-text">Linear Discriminant Functions for Scoring and Ranking Instances</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linear-regression"><span class="nav-number">2.4.</span> <span class="nav-text">Linear regression</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference-1"><span class="nav-number">2.5.</span> <span class="nav-text">reference</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Science-for-Business-Chapter-5-reading-notes"><span class="nav-number">3.</span> <span class="nav-text">Data Science for Business Chapter 5 reading notes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Overfitting-Examined"><span class="nav-number">3.1.</span> <span class="nav-text">Overfitting Examined</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Learning-Curves"><span class="nav-number">3.2.</span> <span class="nav-text">Learning Curves</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Overfitting-Avoidance-and-Complexity-Control"><span class="nav-number">3.3.</span> <span class="nav-text">Overfitting Avoidance and Complexity Control</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Avoiding-Overfitting-with-Tree-Induction"><span class="nav-number">3.3.1.</span> <span class="nav-text">Avoiding Overfitting with Tree Induction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#A-General-Method-for-Avoiding-Overfitting"><span class="nav-number">3.3.2.</span> <span class="nav-text">A General Method for Avoiding Overfitting</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Avoiding-Overfitting-for-Parameter-Optimization"><span class="nav-number">3.3.3.</span> <span class="nav-text">Avoiding Overfitting for Parameter Optimization</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference-2"><span class="nav-number">3.4.</span> <span class="nav-text">reference</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
@@ -626,9 +641,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'muuuuuj';
-      var disqus_identifier = '2016/07/31/DS-for-Business/';
+      var disqus_identifier = '2016/07/02/DS-for-Business/';
       var disqus_title = "Data Science for Business";
-      var disqus_url = 'http://yoursite.com/2016/07/31/DS-for-Business/';
+      var disqus_url = 'http://yoursite.com/2016/07/02/DS-for-Business/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
