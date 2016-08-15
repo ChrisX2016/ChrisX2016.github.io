@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content=",," />
+  <meta name="keywords" content="algorithm," />
 
 
 
@@ -84,22 +84,18 @@
 
 
 
-<meta name="description" content="Introduction to Predictive Modeling-From Correlation to Supervised Segmentation">
-<meta name="keywords">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Data Science for Business Chapter 3 阅读笔记">
-<meta property="og:url" content="http://yoursite.com/nouse/DS-for-Business-Chapter-3.html">
+<meta name="description" content="next permutation algorithm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="next permutation algorithm">
+<meta property="og:url" content="http://yoursite.com/2016/08/09/next-permutation-algorithm/index.html">
 <meta property="og:site_name" content="MUUUUUJ">
-<meta property="og:description" content="Introduction to Predictive Modeling-From Correlation to Supervised Segmentation">
-<meta property="og:image" content="http://yoursite.com/\images\DS_for_B_3-1.png">
-<meta property="og:image" content="http://yoursite.com/\images\DS_for_B_3-2.png">
-<meta property="og:image" content="http://yoursite.com/\images\DS_for_B_3-3.png">
-<meta property="og:image" content="http://yoursite.com/\images\DS_for_B_3-4.png">
-<meta property="og:updated_time" content="2016-07-29T00:59:40.724Z">
+<meta property="og:description" content="next permutation algorithm">
+<meta property="og:image" content="http://yoursite.com/\images\next-permutation-algorithm.png">
+<meta property="og:updated_time" content="2016-08-09T02:50:47.498Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Data Science for Business Chapter 3 阅读笔记">
-<meta name="twitter:description" content="Introduction to Predictive Modeling-From Correlation to Supervised Segmentation">
-<meta name="twitter:image" content="http://yoursite.com/\images\DS_for_B_3-1.png">
+<meta name="twitter:title" content="next permutation algorithm">
+<meta name="twitter:description" content="next permutation algorithm">
+<meta name="twitter:image" content="http://yoursite.com/\images\next-permutation-algorithm.png">
 
 
 
@@ -120,15 +116,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/nouse/DS-for-Business-Chapter-3.html"/>
+  <link rel="canonical" href="http://yoursite.com/2016/08/09/next-permutation-algorithm/"/>
 
-  <title>
-  
-
-  
-    Data Science for Business Chapter 3 阅读笔记 | MUUUUUJ
-  
-</title>
+  <title> next permutation algorithm | MUUUUUJ </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -149,7 +139,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-right  ">
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -239,18 +229,151 @@
 
   <div id="posts" class="posts-expand">
     
-    
-      <h1 id="Data-Science-for-Business-Chapter-3-reading-notes"><a href="#Data-Science-for-Business-Chapter-3-reading-notes" class="headerlink" title="Data Science for Business Chapter 3 reading notes"></a>Data Science for Business Chapter 3 reading notes</h1><p><strong>Fundamental concepts:</strong> Identifying informative attributes; Segmenting data by progressive attribute selection.<br><strong>Exemplary techniques:</strong> Finding correlations; Attribute/variable selection; Tree induction.<br>主要讲 predictive modeling.</p>
-<h2 id="Models-Induction-and-Prediction"><a href="#Models-Induction-and-Prediction" class="headerlink" title="Models, Induction, and Prediction"></a>Models, Induction, and Prediction</h2><p><img src="\images\DS_for_B_3-1.png" alt="DS_for_B_3-1"><br>此处有关于 supervised variable 的定义. attributes variable, target variable. 可从 figure 3-1 理解。</p>
-<h2 id="Selecting-Informative-Attributes"><a href="#Selecting-Informative-Attributes" class="headerlink" title="Selecting Informative Attributes"></a>Selecting Informative Attributes</h2><p><strong>entropy:</strong> $H(x) = -\sum_{i=0}^{N} p_{i} \log(p_{i})$, measure how disordered any set is.<br><strong>Information gain:</strong>  measure how much an attribute improves (decreases) entropy over the whole segmentation it creates. Information gain is a synonym for Kullback–Leibler divergence.<br>    $IG(parent,children) = H(parent)- [p(c_{1})\times H(c_{1})+p(c_{2})\times H(c_{2})]$<br>(选取Information gain 较高的分类方法)</p>
-<h2 id="Example-Attribute-Selection-with-Information-Gain"><a href="#Example-Attribute-Selection-with-Information-Gain" class="headerlink" title="Example: Attribute Selection with Information Gain"></a>Example: Attribute Selection with Information Gain</h2><p>datasource: <a href="https://archive.ics.uci.edu/ml/datasets/Mushroom" target="_blank" rel="external">https://archive.ics.uci.edu/ml/datasets/Mushroom</a><br><img src="\images\DS_for_B_3-2.png" alt="DS_for_B_3-2"><br><img src="\images\DS_for_B_3-3.png" alt="DS_for_B_3-3"><br><img src="\images\DS_for_B_3-4.png" alt="DS_for_B_3-4."><br>选取imformation gain 最大的attribute做为分类依据，即图中entropy面积最小的。</p>
-<h2 id="Probability-Estimation"><a href="#Probability-Estimation" class="headerlink" title="Probability Estimation"></a>Probability Estimation</h2><p>a frequency-basedestimate of class membership probability:<br>$ P=\frac{n}{n+m}$<br>use Laplace correction, The equation for binary class probability estimation:<br>$ P=\frac{n+1}{n+m+2}$</p>
-<h2 id="Example-Addressing-the-Churn-Problem-with-Tree-Induction"><a href="#Example-Addressing-the-Churn-Problem-with-Tree-Induction" class="headerlink" title="Example: Addressing the Churn Problem with Tree Induction"></a>Example: Addressing the Churn Problem with Tree Induction</h2><p>这里注意一个问题，每一个分支都要重新算一次imformation gain,来选取分类标准。</p>
-<h1 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h1><blockquote>
-<p>Fawcett T, Provost F. Data Science for Business[M]. O’Reilly Media, 2013.<br>information gain and decision tree: <a href="http://blog.sina.com.cn/s/blog_67bc5aa60100qays.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_67bc5aa60100qays.html</a><br>Information gain in decision trees: <a href="https://en.wikipedia.org/wiki/Information_gain_in_decision_trees" target="_blank" rel="external">https://en.wikipedia.org/wiki/Information_gain_in_decision_trees</a></p>
-</blockquote>
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                next permutation algorithm
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-08-09T10:45:26+08:00" content="2016-08-09">
+              2016-08-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">algorithm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/09/next-permutation-algorithm/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/08/09/next-permutation-algorithm/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="\images\next-permutation-algorithm.png" alt="next-permutation-algorithm"></p>
+<h1 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h1><blockquote>
+<p><a href="https://www.nayuki.io/page/next-lexicographical-permutation-algorithm" target="_blank" rel="external">https://www.nayuki.io/page/next-lexicographical-permutation-algorithm</a></p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/algorithm/" rel="tag">#algorithm</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/01/leetcode-python/" rel="next" title="leetcode python">
+                <i class="fa fa-chevron-left"></i> leetcode python
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/14/crawler-python-train/" rel="prev" title="python crawler">
+                python crawler <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -289,8 +412,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/touxiang.jpg"
@@ -340,6 +472,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#reference"><span class="nav-number">1.</span> <span class="nav-text">reference</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -436,6 +579,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
@@ -452,9 +599,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'muuuuuj';
-      var disqus_identifier = 'nouse/DS-for-Business-Chapter-3.html';
-      var disqus_title = "Data Science for Business Chapter 3 阅读笔记";
-      var disqus_url = 'http://yoursite.com/nouse/DS-for-Business-Chapter-3.html';
+      var disqus_identifier = '2016/08/09/next-permutation-algorithm/';
+      var disqus_title = "next permutation algorithm";
+      var disqus_url = 'http://yoursite.com/2016/08/09/next-permutation-algorithm/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
