@@ -86,43 +86,31 @@
 
 <meta name="description" content="main idea
 Re to NFA
-NFA to DFA (Subset Construction Method)
+NFA to DFA (Subset Construction Method) (也可以先NFA to NFA without $\varepsilon$)
 
-Example 1
-Example 2(rederence 中ppt图有误。)
-Reference
-
-http://blog.csdn.net/qq_23100787/article/details/50402643https://raphiinconcordia.files.">
+difference between NFA and DFAstackoverflow: DFA vs NFA engines: What is the difference in their cap">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NFA to DFA (Subset Construction Method)">
 <meta property="og:url" content="http://yoursite.com/2016/10/09/NFA-to-DFA/index.html">
 <meta property="og:site_name" content="MUUUUUJ">
 <meta property="og:description" content="main idea
 Re to NFA
-NFA to DFA (Subset Construction Method)
+NFA to DFA (Subset Construction Method) (也可以先NFA to NFA without $\varepsilon$)
 
-Example 1
-Example 2(rederence 中ppt图有误。)
-Reference
-
-http://blog.csdn.net/qq_23100787/article/details/50402643https://raphiinconcordia.files.">
+difference between NFA and DFAstackoverflow: DFA vs NFA engines: What is the difference in their cap">
 <meta property="og:image" content="http://yoursite.com/\images\NFAtoDFA-2.jpg">
 <meta property="og:image" content="http://yoursite.com/\images\NFAtoDFA-1.jpg">
 <meta property="og:image" content="http://yoursite.com/\images\NFAtoDFA-3.jpg">
 <meta property="og:image" content="http://yoursite.com/\images\NFAtoDFA-4.jpg">
 <meta property="og:image" content="http://yoursite.com/\images\NFAtoDFA-1.png">
-<meta property="og:updated_time" content="2016-10-10T00:42:01.488Z">
+<meta property="og:updated_time" content="2016-10-10T19:49:27.145Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NFA to DFA (Subset Construction Method)">
 <meta name="twitter:description" content="main idea
 Re to NFA
-NFA to DFA (Subset Construction Method)
+NFA to DFA (Subset Construction Method) (也可以先NFA to NFA without $\varepsilon$)
 
-Example 1
-Example 2(rederence 中ppt图有误。)
-Reference
-
-http://blog.csdn.net/qq_23100787/article/details/50402643https://raphiinconcordia.files.">
+difference between NFA and DFAstackoverflow: DFA vs NFA engines: What is the difference in their cap">
 <meta name="twitter:image" content="http://yoursite.com/\images\NFAtoDFA-2.jpg">
 
 
@@ -344,13 +332,20 @@ http://blog.csdn.net/qq_23100787/article/details/50402643https://raphiinconcordi
       
         <h3 id="main-idea"><a href="#main-idea" class="headerlink" title="main idea"></a>main idea</h3><ol>
 <li>Re to NFA</li>
-<li>NFA to DFA (Subset Construction Method)</li>
+<li>NFA to DFA (Subset Construction Method) (也可以先NFA to NFA without $\varepsilon$)</li>
 </ol>
-<h3 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1"></a>Example 1</h3><p><img src="\images\NFAtoDFA-2.jpg" alt="NFAtoDFA-2"><br><img src="\images\NFAtoDFA-1.jpg" alt="NFAtoDFA-1"><br><img src="\images\NFAtoDFA-3.jpg" alt="NFAtoDFA-3"><br><img src="\images\NFAtoDFA-4.jpg" alt="NFAtoDFA-4"></p>
-<h3 id="Example-2"><a href="#Example-2" class="headerlink" title="Example 2"></a>Example 2</h3><p><img src="\images\NFAtoDFA-1.png" alt="NFAtoDFA-1"><br>(rederence 中ppt图有误。)</p>
+<h3 id="difference-between-NFA-and-DFA"><a href="#difference-between-NFA-and-DFA" class="headerlink" title="difference between NFA and DFA"></a>difference between NFA and DFA</h3><p><a href="http://stackoverflow.com/questions/3978438/dfa-vs-nfa-engines-what-is-the-difference-in-their-capabilities-and-limitations" target="_blank" rel="external">stackoverflow: DFA vs NFA engines: What is the difference in their capabilities and limitations?</a><br>DFA没有一个状态具有$\varepsilon$转换，即在输入$\varepsilon$上的转换。对每个状态$s$和输入符号$a$，DFA最多只有一条标记为$a$的边离开，即在任何状态下对任一输入符号，最多只有一个转换。</p>
+<h3 id="Example-1-reference-1"><a href="#Example-1-reference-1" class="headerlink" title="Example 1 (reference 1)"></a>Example 1 (reference 1)</h3><p><img src="\images\NFAtoDFA-2.jpg" alt="NFAtoDFA-2"><br>$I$中第一项其实是从state$0$，而$I_a$，$I_b$第一项开始，是从stata $0$开始，经过一个$a$所能到达的几何(可以忽略前后$\varepsilon$)。$b$同理。<br><img src="\images\NFAtoDFA-1.jpg" alt="NFAtoDFA-1"><br><img src="\images\NFAtoDFA-3.jpg" alt="NFAtoDFA-3"><br><img src="\images\NFAtoDFA-4.jpg" alt="NFAtoDFA-4"></p>
+<h3 id="Example-2-reference-2"><a href="#Example-2-reference-2" class="headerlink" title="Example 2 (reference 2)"></a>Example 2 (reference 2)</h3><p><img src="\images\NFAtoDFA-1.png" alt="NFAtoDFA-1"><br>(rederence 中ppt图有误。)</p>
+<p><strong><h2>more example reference 3.</h2></strong></p>
 <p>Reference</p>
 <blockquote>
-<p><a href="http://blog.csdn.net/qq_23100787/article/details/50402643" target="_blank" rel="external">http://blog.csdn.net/qq_23100787/article/details/50402643</a><br><a href="https://raphiinconcordia.files.wordpress.com/2015/05/nfa-to-dfa.ppt" target="_blank" rel="external">https://raphiinconcordia.files.wordpress.com/2015/05/nfa-to-dfa.ppt</a></p>
+<ol>
+<li><a href="http://blog.csdn.net/qq_23100787/article/details/50402643" target="_blank" rel="external">http://blog.csdn.net/qq_23100787/article/details/50402643</a></li>
+<li><a href="https://raphiinconcordia.files.wordpress.com/2015/05/nfa-to-dfa.ppt" target="_blank" rel="external">https://raphiinconcordia.files.wordpress.com/2015/05/nfa-to-dfa.ppt</a></li>
+<li><a href="https://books.google.com/books?id=g2CnKu3IOHQC&amp;pg=SA1-PA2&amp;hl=zh-CN&amp;source=gbs_toc_r&amp;cad=3#v=onepage&amp;q&amp;f=false" target="_blank" rel="external">Puntambekar A A. Formal Languages And Automata Theory[M]. Technical Publications, 2008.</a></li>
+<li>Aho A V, 阿霍, Sethi R, et al. 编译原理[M]. 机械工业出版社, 2003.</li>
+</ol>
 </blockquote>
 
       
@@ -509,7 +504,7 @@ http://blog.csdn.net/qq_23100787/article/details/50402643https://raphiinconcordi
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#main-idea"><span class="nav-number">1.</span> <span class="nav-text">main idea</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-1"><span class="nav-number">2.</span> <span class="nav-text">Example 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-2"><span class="nav-number">3.</span> <span class="nav-text">Example 2</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#main-idea"><span class="nav-number">1.</span> <span class="nav-text">main idea</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#difference-between-NFA-and-DFA"><span class="nav-number">2.</span> <span class="nav-text">difference between NFA and DFA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-1-reference-1"><span class="nav-number">3.</span> <span class="nav-text">Example 1 (reference 1)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-2-reference-2"><span class="nav-number">4.</span> <span class="nav-text">Example 2 (reference 2)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number"></span> <span class="nav-text">more example reference 3.</span></a></div>
             
           </div>
         </section>
