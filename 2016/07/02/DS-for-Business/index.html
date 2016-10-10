@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Data Science for Business,reading notes," />
+  <meta name="keywords" content="reading notes,Data Science for Business," />
 
 
 
@@ -98,7 +98,13 @@
 <meta property="og:image" content="http://yoursite.com/\images\DS_for_B_5-2.png">
 <meta property="og:image" content="http://yoursite.com/\images\DS_for_B_5-3.png">
 <meta property="og:image" content="http://yoursite.com/\images\DS_for_B_5-4.png">
-<meta property="og:updated_time" content="2016-08-01T06:38:36.871Z">
+<meta property="og:image" content="http://yoursite.com/\images\DS_for_B_6-1.png">
+<meta property="og:image" content="http://yoursite.com/\images\DS_for_B_6-2.png">
+<meta property="og:image" content="http://yoursite.com/\images\DS_for_B_6-3.png">
+<meta property="og:image" content="http://yoursite.com/\images\DS_for_B_6-4.png">
+<meta property="og:image" content="http://yoursite.com/\images\DS_for_B_7-1.png">
+<meta property="og:image" content="http://yoursite.com/\images\DS_for_B_7-2.png">
+<meta property="og:updated_time" content="2016-10-01T03:19:28.921Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Data Science for Business">
 <meta name="twitter:description" content="Fawcett T, Provost F. Data Science for Business[M]. O&apos;Reilly Media, 2013.">
@@ -267,7 +273,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-07-02T21:52:28+08:00" content="2016-07-02">
+            <time itemprop="dateCreated" datetime="2016-07-02T21:52:28-04:00" content="2016-07-02">
               2016-07-02
             </time>
           </span>
@@ -321,41 +327,84 @@
       
 
       
-        <h1 id="Data-Science-for-Business-Chapter-3-reading-notes"><a href="#Data-Science-for-Business-Chapter-3-reading-notes" class="headerlink" title="Data Science for Business Chapter 3 reading notes"></a>Data Science for Business Chapter 3 reading notes</h1><p>description: Introduction to Predictive Modeling-From Correlation to Supervised Segmentation</p>
+        <h1 id="Data-Science-for-Business-Chapter-3-reading-notes"><a href="#Data-Science-for-Business-Chapter-3-reading-notes" class="headerlink" title="Data Science for Business Chapter 3 reading notes"></a>Data Science for Business Chapter 3 reading notes</h1><p>feature selection|</p>
+<p>description: Introduction to Predictive Modeling-From Correlation to Supervised Segmentation</p>
 <p><strong>Fundamental concepts:</strong> Identifying informative attributes; Segmenting data by progressive attribute selection.<br><strong>Exemplary techniques:</strong> Finding correlations; Attribute/variable selection; Tree induction.<br>主要讲 predictive modeling.</p>
+<hr>
 <h2 id="Models-Induction-and-Prediction"><a href="#Models-Induction-and-Prediction" class="headerlink" title="Models, Induction, and Prediction"></a>Models, Induction, and Prediction</h2><p><img src="\images\DS_for_B_3-1.png" alt="DS_for_B_3-1"><br>此处有关于 supervised variable 的定义. attributes variable, target variable. 可从 figure 3-1 理解。</p>
+<hr>
 <h2 id="Selecting-Informative-Attributes"><a href="#Selecting-Informative-Attributes" class="headerlink" title="Selecting Informative Attributes"></a>Selecting Informative Attributes</h2><p><strong>entropy:</strong> $H(x) = -\sum_{i=0}^{N} p_{i} \log(p_{i})$, measure how disordered any set is.<br><strong>Information gain:</strong>  measure how much an attribute improves (decreases) entropy over the whole segmentation it creates. Information gain is a synonym for Kullback–Leibler divergence.<br>    $IG(parent,children) = H(parent)- [p(c_{1})\times H(c_{1})+p(c_{2})\times H(c_{2})]$<br>(选取Information gain 较高的分类方法)</p>
+<hr>
 <h2 id="Example-Attribute-Selection-with-Information-Gain"><a href="#Example-Attribute-Selection-with-Information-Gain" class="headerlink" title="Example: Attribute Selection with Information Gain"></a>Example: Attribute Selection with Information Gain</h2><p>datasource: <a href="https://archive.ics.uci.edu/ml/datasets/Mushroom" target="_blank" rel="external">https://archive.ics.uci.edu/ml/datasets/Mushroom</a><br><img src="\images\DS_for_B_3-2.png" alt="DS_for_B_3-2"><br><img src="\images\DS_for_B_3-3.png" alt="DS_for_B_3-3"><br><img src="\images\DS_for_B_3-4.png" alt="DS_for_B_3-4."><br>选取imformation gain 最大的attribute做为分类依据，即图中entropy面积最小的。</p>
+<hr>
 <h2 id="Probability-Estimation"><a href="#Probability-Estimation" class="headerlink" title="Probability Estimation"></a>Probability Estimation</h2><p>a frequency-basedestimate of class membership probability:<br>$ P=\frac{n}{n+m}$<br>use Laplace correction, The equation for binary class probability estimation:<br>$ P=\frac{n+1}{n+m+2}$</p>
+<hr>
 <h2 id="Example-Addressing-the-Churn-Problem-with-Tree-Induction"><a href="#Example-Addressing-the-Churn-Problem-with-Tree-Induction" class="headerlink" title="Example: Addressing the Churn Problem with Tree Induction"></a>Example: Addressing the Churn Problem with Tree Induction</h2><p>这里注意一个问题，每一个分支都要重新算一次imformation gain,来选取分类标准。</p>
+<hr>
 <h2 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h2><blockquote>
 <p>Fawcett T, Provost F. Data Science for Business[M]. O’Reilly Media, 2013.<br>information gain and decision tree: <a href="http://blog.sina.com.cn/s/blog_67bc5aa60100qays.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_67bc5aa60100qays.html</a><br>Information gain in decision trees: <a href="https://en.wikipedia.org/wiki/Information_gain_in_decision_trees" target="_blank" rel="external">https://en.wikipedia.org/wiki/Information_gain_in_decision_trees</a></p>
 </blockquote>
 <hr>
 <h1 id="Data-Science-for-Business-Chapter-4-reading-notes"><a href="#Data-Science-for-Business-Chapter-4-reading-notes" class="headerlink" title="Data Science for Business Chapter 4 reading notes"></a>Data Science for Business Chapter 4 reading notes</h1><p>description: Fitting a Model to Data</p>
 <p><strong>Fundamental concepts:</strong> Finding “optimal” model parameters based on data; Choosing the goal for data mining; Objective functions; Loss functions.<br><strong>Exemplary techniques:</strong> Linear regression; Logistic regression; Support-vector machines.</p>
+<hr>
 <h2 id="Linear-Discriminant-Functions"><a href="#Linear-Discriminant-Functions" class="headerlink" title="Linear Discriminant Functions"></a>Linear Discriminant Functions</h2><p> A general linear model:  $f(x)=w_{0}+w_{1}x_{1}+w_{2}x_{2}+\cdots$</p>
 <p> Linear regression, logistic regression, and support vector machines</p>
+<hr>
 <h2 id="An-Example-of-Mining-a-Linear-Discriminant-from-Data"><a href="#An-Example-of-Mining-a-Linear-Discriminant-from-Data" class="headerlink" title="An Example of Mining a Linear Discriminant from Data"></a>An Example of Mining a Linear Discriminant from Data</h2><p>UCI Dataset Repository,Iris dataset: <a href="https://archive.ics.uci.edu/ml/datasets/Iris" target="_blank" rel="external">https://archive.ics.uci.edu/ml/datasets/Iris</a></p>
+<hr>
 <h2 id="Linear-Discriminant-Functions-for-Scoring-and-Ranking-Instances"><a href="#Linear-Discriminant-Functions-for-Scoring-and-Ranking-Instances" class="headerlink" title="Linear Discriminant Functions for Scoring and Ranking Instances"></a>Linear Discriminant Functions for Scoring and Ranking Instances</h2><p>$f(x)$的值会告诉我们likelihood of belonging to the class</p>
+<hr>
 <h2 id="Linear-regression"><a href="#Linear-regression" class="headerlink" title="Linear regression"></a>Linear regression</h2><p>Log-odds linear function:<br>$log \left(\frac{p_{+}(x)}{1-p_{+}(x)}\right) =f(x)=w_{0}+w_{1}x_{1}+w_{2}x_{2}+\cdots$</p>
 <p>The logistic function:<br>$p_{+}(x)=\frac{1}{1+e^{-f(x)}}$</p>
-<h2 id="reference-1"><a href="#reference-1" class="headerlink" title="reference"></a>reference</h2><blockquote>
-<p>Fawcett T, Provost F. Data Science for Business[M]. O’Reilly Media, 2013.</p>
-</blockquote>
 <hr>
 <h1 id="Data-Science-for-Business-Chapter-5-reading-notes"><a href="#Data-Science-for-Business-Chapter-5-reading-notes" class="headerlink" title="Data Science for Business Chapter 5 reading notes"></a>Data Science for Business Chapter 5 reading notes</h1><p>description: Overfitting and Its Avoidance</p>
 <p><strong>Fundamental concepts: </strong>Generalization; Fitting and overfitting; Complexity control.<br><strong>Exemplary techniques: </strong>Cross-validation; Attribute selection; Tree pruning; Regularization</p>
+<hr>
 <h2 id="Overfitting-Examined"><a href="#Overfitting-Examined" class="headerlink" title="Overfitting Examined"></a>Overfitting Examined</h2><p><img src="\images\DS_for_B_5-1.png" alt="DS_for_B_5-1"><br><strong>fitting graph</strong>, training set and test set(holdout),并不是越复杂的model越好</p>
 <p><img src="\images\DS_for_B_5-2.png" alt="DS_for_B_5-2"><br>Cross-validation的用法如上图所示,then compute the average and standard deviation</p>
+<p>a classifier that always selects the majority class is called a <strong>base rate classifier</strong>.</p>
+<hr>
 <h2 id="Learning-Curves"><a href="#Learning-Curves" class="headerlink" title="Learning Curves"></a>Learning Curves</h2><p><img src="\images\DS_for_B_5-3.png" alt="DS_for_B_5-3"><br><strong>learning curve</strong>, A plot of the generalization performance against the amount of training data is called a learning curve.<br><img src="\images\DS_for_B_5-4.png" alt="DS_for_B_5-4"><br><strong>fitting graph</strong>, shows the generalization performance as well as the performance on the training data, but plotted against model complexity</p>
+<hr>
 <h2 id="Overfitting-Avoidance-and-Complexity-Control"><a href="#Overfitting-Avoidance-and-Complexity-Control" class="headerlink" title="Overfitting Avoidance and Complexity Control"></a>Overfitting Avoidance and Complexity Control</h2><h3 id="Avoiding-Overfitting-with-Tree-Induction"><a href="#Avoiding-Overfitting-with-Tree-Induction" class="headerlink" title="Avoiding Overfitting with Tree Induction"></a>Avoiding Overfitting with Tree Induction</h3><ol>
 <li>to stopgrowing the tree before it gets too complex</li>
 <li>to grow the tree until it is too large, then “prune” it back, reducing its size (and thereby its complexity).<br>for 1 限定每个leaf中instance的个数<br>for 2 prune 知道reduce accuracy</li>
 </ol>
 <h3 id="A-General-Method-for-Avoiding-Overfitting"><a href="#A-General-Method-for-Avoiding-Overfitting" class="headerlink" title="A General Method for Avoiding Overfitting"></a>A General Method for Avoiding Overfitting</h3><p>first find complexity parameter $C$, then bulid model </p>
 <h3 id="Avoiding-Overfitting-for-Parameter-Optimization"><a href="#Avoiding-Overfitting-for-Parameter-Optimization" class="headerlink" title="Avoiding Overfitting for Parameter Optimization"></a>Avoiding Overfitting for Parameter Optimization</h3><p>regularization, add penalty</p>
-<h2 id="reference-2"><a href="#reference-2" class="headerlink" title="reference"></a>reference</h2><blockquote>
+<hr>
+<h1 id="Data-Science-for-Business-Chapter-6-reading-notes"><a href="#Data-Science-for-Business-Chapter-6-reading-notes" class="headerlink" title="Data Science for Business Chapter 6 reading notes"></a>Data Science for Business Chapter 6 reading notes</h1><p>description: Similarity, Neighbors, and Clusters</p>
+<p><strong>Fundamental concepts:</strong> Calculating similarity of objects described by data; Using simi‐larity for prediction; Clustering as similarity-based segmentation.<br><strong>Exemplary techniques:</strong> Searching for similar entities; Nearest neighbor methods; Clus‐tering methods; Distance metrics for calculating similarity.<br><a href="https://en.wikipedia.org/wiki/Cluster_analysis" target="_blank" rel="external">https://en.wikipedia.org/wiki/Cluster_analysis</a></p>
+<hr>
+<h2 id="Nearest-Neighbor-Reasoning"><a href="#Nearest-Neighbor-Reasoning" class="headerlink" title="Nearest-Neighbor Reasoning"></a>Nearest-Neighbor Reasoning</h2><h3 id="Example-Whiskey-Analytics"><a href="#Example-Whiskey-Analytics" class="headerlink" title="Example: Whiskey Analytics"></a>Example: Whiskey Analytics</h3><p>represent as a feature vector, compute Euclidean distance</p>
+<h3 id="Nearest-Neighbors-for-Predictive-Modeling"><a href="#Nearest-Neighbors-for-Predictive-Modeling" class="headerlink" title="Nearest Neighbors for Predictive Modeling"></a>Nearest Neighbors for Predictive Modeling</h3><p><img src="\images\DS_for_B_6-1.png" alt="DS_for_B_6-1"><br><strong>Classification</strong><br>Majority Vote: <a href="http://blog.csdn.net/feliciafay/article/details/18876123" target="_blank" rel="external">http://blog.csdn.net/feliciafay/article/details/18876123</a><br><strong>Probability Estimation</strong><br><strong>Regression</strong><br>predict income, find nearest neighbors, compute average or median.</p>
+<p><strong>similarity moderated voting:</strong><br><img src="\images\DS_for_B_6-2.png" alt="DS_for_B_6-2"><br>Contribution sum to 1<br>有continue 的，分段；有male，female之类的，0,1；</p>
+<h3 id="Distance-Functions"><a href="#Distance-Functions" class="headerlink" title="Distance Functions:"></a>Distance Functions:</h3><p><a href="http://blog.sina.com.cn/s/blog_618985870101jmnp.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_618985870101jmnp.html</a></p>
+<hr>
+<h2 id="Clustering"><a href="#Clustering" class="headerlink" title="Clustering"></a>Clustering</h2><h3 id="Hierarchical-Clustering"><a href="#Hierarchical-Clustering" class="headerlink" title="Hierarchical Clustering"></a>Hierarchical Clustering</h3><p><img src="\images\DS_for_B_6-3.png" alt="DS_for_B_6-3"><br>Hierarchical clusterings generally are formed by starting with each node as its own cluster. Then clusters are merged iteratively until only a single cluster remains.<br><strong>key point:</strong> distance function between clusters, sometimes called the linkage function</p>
+<p><strong>application:</strong> Phylogenetic tree<br><a href="https://en.wikipedia.org/wiki/Phylogenetic_tree" target="_blank" rel="external">https://en.wikipedia.org/wiki/Phylogenetic_tree</a><br><img src="\images\DS_for_B_6-4.png" alt="DS_for_B_6-4"></p>
+<hr>
+<h2 id="Nearest-Neighbors-Revisited-Clustering-Around-Centroids"><a href="#Nearest-Neighbors-Revisited-Clustering-Around-Centroids" class="headerlink" title="Nearest Neighbors Revisited: Clustering Around Centroids"></a>Nearest Neighbors Revisited: Clustering Around Centroids</h2><p>most popular: K-mean<br>will find local optimal need try many times, measure clusters’ distortion to determine the best one.<br>How to determine k: experiment with different k<br><a href="https://en.wikipedia.org/wiki/Determining_the_number_of_clusters_in_a_data_set" target="_blank" rel="external">https://en.wikipedia.org/wiki/Determining_the_number_of_clusters_in_a_data_set</a></p>
+<h3 id="Example-Clustering-Business-News-Stories"><a href="#Example-Clustering-Business-News-Stories" class="headerlink" title="Example: Clustering Business News Stories"></a>Example: Clustering Business News Stories</h3><p>data:  Thomson Reuters Text Research Collection (TRC2)</p>
+<ol>
+<li>抓取题目中带apple的文章</li>
+<li>TFIDF 进一步过来文章</li>
+<li>vectorlize, k-mean clustering</li>
+</ol>
+<p><strong>Using Supervised Learning to Generate Cluster Descriptions</strong></p>
+<ol>
+<li>two way: k-class or one vs k-1</li>
+<li>use decision tree</li>
+<li>according to decision tree, find description<br>it describes only what differentiates this cluster from the others</li>
+</ol>
+<hr>
+<h1 id="Data-Science-for-Business-Chapter-7-reading-notes"><a href="#Data-Science-for-Business-Chapter-7-reading-notes" class="headerlink" title="Data Science for Business Chapter 7 reading notes"></a>Data Science for Business Chapter 7 reading notes</h1><h2 id="key-idea"><a href="#key-idea" class="headerlink" title="key idea"></a>key idea</h2><p>High accuracy sometime means nothing–majority class, unbalanced or skewed distribution. Using balanced population to training, but the true population is unbalabced.</p>
+<h2 id="Evaluation-Metrics"><a href="#Evaluation-Metrics" class="headerlink" title="Evaluation Metrics"></a>Evaluation Metrics</h2><p>Confusion matrix<br><img src="\images\DS_for_B_7-1.png" alt="DS_for_B_7-1.png"></p>
+<p>True positive rate=TP/(TP + FN)  True negative rate= FN/(TP + FN)<br>Precision = TP/(TP + FP) Recall=TP/(TP + FN) F-measure=$2\frac{precision·recall}{precision+recall}$</p>
+<p>Sensitivity = TN/(TN+FP)=Truenegativerate=1-Falsepositiverate<br>Specificity = TP/(TP+FN)=Truepositiverate</p>
+<h2 id="Expected-Value"><a href="#Expected-Value" class="headerlink" title="Expected Value"></a>Expected Value</h2><p><img src="\images\DS_for_B_7-2.png" alt="DS_for_B_7-2.png"><br>Expected Value=p(Y| p)· p(p)·b(Y, p)+p(N| p)· p(p)·b(N, p)+ p(N| n)· p(n)·b(N, n)+p(Y| n)· p(n)·b(Y, n)<br>=p(p) · p(Y| p)·b(Y, p)+p(N| p)·c(N, p) + p(n) · p(N| n)·b(N, n)+p(Y| n)·c(Y, n)]</p>
+<h1 id="reference-1"><a href="#reference-1" class="headerlink" title="reference"></a>reference</h1><blockquote>
 <p>Fawcett T, Provost F. Data Science for Business[M]. O’Reilly Media, 2013.</p>
 </blockquote>
 
@@ -379,9 +428,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Data-Science-for-Business/" rel="tag">#Data Science for Business</a>
-          
             <a href="/tags/reading-notes/" rel="tag">#reading notes</a>
+          
+            <a href="/tags/Data-Science-for-Business/" rel="tag">#Data Science for Business</a>
           
         </div>
       
@@ -475,7 +524,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -483,7 +532,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -492,7 +541,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -521,7 +570,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Science-for-Business-Chapter-3-reading-notes"><span class="nav-number">1.</span> <span class="nav-text">Data Science for Business Chapter 3 reading notes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Models-Induction-and-Prediction"><span class="nav-number">1.1.</span> <span class="nav-text">Models, Induction, and Prediction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Selecting-Informative-Attributes"><span class="nav-number">1.2.</span> <span class="nav-text">Selecting Informative Attributes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example-Attribute-Selection-with-Information-Gain"><span class="nav-number">1.3.</span> <span class="nav-text">Example: Attribute Selection with Information Gain</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Probability-Estimation"><span class="nav-number">1.4.</span> <span class="nav-text">Probability Estimation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example-Addressing-the-Churn-Problem-with-Tree-Induction"><span class="nav-number">1.5.</span> <span class="nav-text">Example: Addressing the Churn Problem with Tree Induction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference"><span class="nav-number">1.6.</span> <span class="nav-text">reference</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Science-for-Business-Chapter-4-reading-notes"><span class="nav-number">2.</span> <span class="nav-text">Data Science for Business Chapter 4 reading notes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linear-Discriminant-Functions"><span class="nav-number">2.1.</span> <span class="nav-text">Linear Discriminant Functions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#An-Example-of-Mining-a-Linear-Discriminant-from-Data"><span class="nav-number">2.2.</span> <span class="nav-text">An Example of Mining a Linear Discriminant from Data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linear-Discriminant-Functions-for-Scoring-and-Ranking-Instances"><span class="nav-number">2.3.</span> <span class="nav-text">Linear Discriminant Functions for Scoring and Ranking Instances</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linear-regression"><span class="nav-number">2.4.</span> <span class="nav-text">Linear regression</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference-1"><span class="nav-number">2.5.</span> <span class="nav-text">reference</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Science-for-Business-Chapter-5-reading-notes"><span class="nav-number">3.</span> <span class="nav-text">Data Science for Business Chapter 5 reading notes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Overfitting-Examined"><span class="nav-number">3.1.</span> <span class="nav-text">Overfitting Examined</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Learning-Curves"><span class="nav-number">3.2.</span> <span class="nav-text">Learning Curves</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Overfitting-Avoidance-and-Complexity-Control"><span class="nav-number">3.3.</span> <span class="nav-text">Overfitting Avoidance and Complexity Control</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Avoiding-Overfitting-with-Tree-Induction"><span class="nav-number">3.3.1.</span> <span class="nav-text">Avoiding Overfitting with Tree Induction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#A-General-Method-for-Avoiding-Overfitting"><span class="nav-number">3.3.2.</span> <span class="nav-text">A General Method for Avoiding Overfitting</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Avoiding-Overfitting-for-Parameter-Optimization"><span class="nav-number">3.3.3.</span> <span class="nav-text">Avoiding Overfitting for Parameter Optimization</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference-2"><span class="nav-number">3.4.</span> <span class="nav-text">reference</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Science-for-Business-Chapter-3-reading-notes"><span class="nav-number">1.</span> <span class="nav-text">Data Science for Business Chapter 3 reading notes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Models-Induction-and-Prediction"><span class="nav-number">1.1.</span> <span class="nav-text">Models, Induction, and Prediction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Selecting-Informative-Attributes"><span class="nav-number">1.2.</span> <span class="nav-text">Selecting Informative Attributes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example-Attribute-Selection-with-Information-Gain"><span class="nav-number">1.3.</span> <span class="nav-text">Example: Attribute Selection with Information Gain</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Probability-Estimation"><span class="nav-number">1.4.</span> <span class="nav-text">Probability Estimation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example-Addressing-the-Churn-Problem-with-Tree-Induction"><span class="nav-number">1.5.</span> <span class="nav-text">Example: Addressing the Churn Problem with Tree Induction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference"><span class="nav-number">1.6.</span> <span class="nav-text">reference</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Science-for-Business-Chapter-4-reading-notes"><span class="nav-number">2.</span> <span class="nav-text">Data Science for Business Chapter 4 reading notes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linear-Discriminant-Functions"><span class="nav-number">2.1.</span> <span class="nav-text">Linear Discriminant Functions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#An-Example-of-Mining-a-Linear-Discriminant-from-Data"><span class="nav-number">2.2.</span> <span class="nav-text">An Example of Mining a Linear Discriminant from Data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linear-Discriminant-Functions-for-Scoring-and-Ranking-Instances"><span class="nav-number">2.3.</span> <span class="nav-text">Linear Discriminant Functions for Scoring and Ranking Instances</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linear-regression"><span class="nav-number">2.4.</span> <span class="nav-text">Linear regression</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Science-for-Business-Chapter-5-reading-notes"><span class="nav-number">3.</span> <span class="nav-text">Data Science for Business Chapter 5 reading notes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Overfitting-Examined"><span class="nav-number">3.1.</span> <span class="nav-text">Overfitting Examined</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Learning-Curves"><span class="nav-number">3.2.</span> <span class="nav-text">Learning Curves</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Overfitting-Avoidance-and-Complexity-Control"><span class="nav-number">3.3.</span> <span class="nav-text">Overfitting Avoidance and Complexity Control</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Avoiding-Overfitting-with-Tree-Induction"><span class="nav-number">3.3.1.</span> <span class="nav-text">Avoiding Overfitting with Tree Induction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#A-General-Method-for-Avoiding-Overfitting"><span class="nav-number">3.3.2.</span> <span class="nav-text">A General Method for Avoiding Overfitting</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Avoiding-Overfitting-for-Parameter-Optimization"><span class="nav-number">3.3.3.</span> <span class="nav-text">Avoiding Overfitting for Parameter Optimization</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Science-for-Business-Chapter-6-reading-notes"><span class="nav-number">4.</span> <span class="nav-text">Data Science for Business Chapter 6 reading notes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Nearest-Neighbor-Reasoning"><span class="nav-number">4.1.</span> <span class="nav-text">Nearest-Neighbor Reasoning</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-Whiskey-Analytics"><span class="nav-number">4.1.1.</span> <span class="nav-text">Example: Whiskey Analytics</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nearest-Neighbors-for-Predictive-Modeling"><span class="nav-number">4.1.2.</span> <span class="nav-text">Nearest Neighbors for Predictive Modeling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Distance-Functions"><span class="nav-number">4.1.3.</span> <span class="nav-text">Distance Functions:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Clustering"><span class="nav-number">4.2.</span> <span class="nav-text">Clustering</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hierarchical-Clustering"><span class="nav-number">4.2.1.</span> <span class="nav-text">Hierarchical Clustering</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nearest-Neighbors-Revisited-Clustering-Around-Centroids"><span class="nav-number">4.3.</span> <span class="nav-text">Nearest Neighbors Revisited: Clustering Around Centroids</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-Clustering-Business-News-Stories"><span class="nav-number">4.3.1.</span> <span class="nav-text">Example: Clustering Business News Stories</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Science-for-Business-Chapter-7-reading-notes"><span class="nav-number">5.</span> <span class="nav-text">Data Science for Business Chapter 7 reading notes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#key-idea"><span class="nav-number">5.1.</span> <span class="nav-text">key idea</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Evaluation-Metrics"><span class="nav-number">5.2.</span> <span class="nav-text">Evaluation Metrics</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Expected-Value"><span class="nav-number">5.3.</span> <span class="nav-text">Expected Value</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#reference-1"><span class="nav-number">6.</span> <span class="nav-text">reference</span></a></li></ol></div>
             
           </div>
         </section>
